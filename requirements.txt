@@ -1,0 +1,6 @@
+fastapi==0.88.0
+uvicorn==0.20.0
+tensorflow-cpu==2.11.0
+keras==2.11.0
+numpy==1.23.5
+argparse==1.4.0
