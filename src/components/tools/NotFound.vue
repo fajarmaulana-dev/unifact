@@ -60,16 +60,8 @@ onMounted(() => {
         </div>
         <div class="absolute w-full bottom-0 h-28 bg-gradient-to-b from-[rgba(0,0,0,0)] to-white dark:to-blue-400">
         </div>
-        <div
-            class="inv absolute top-0 left-0 w-full h-0 dark:h-full overflow-hidden [&>img]:absolute [&>img]:bottom-0 [&>img]:max-w-full">
-            <img rel="preload" loading="lazy" :src="c1" style="--i:1" />
-            <img rel="preload" loading="lazy" :src="c2" style="--i:2" />
-            <img rel="preload" loading="lazy" :src="c3" style="--i:3" />
-            <img rel="preload" loading="lazy" :src="c4" style="--i:4" />
-            <img rel="preload" loading="lazy" :src="c5" style="--i:5" />
-        </div>
-        <div
-            class="absolute top-0 left-0 w-full h-full dark:h-0 overflow-hidden [&>img]:absolute [&>img]:bottom-0 [&>img]:max-w-full">
+        <div :class="isDark ? 'inv' : ''"
+            class="absolute top-0 left-0 w-full h-full overflow-hidden [&>img]:absolute [&>img]:bottom-0 [&>img]:max-w-full">
             <img rel="preload" loading="lazy" :src="c1" style="--i:1" />
             <img rel="preload" loading="lazy" :src="c2" style="--i:2" />
             <img rel="preload" loading="lazy" :src="c3" style="--i:3" />
@@ -82,7 +74,7 @@ onMounted(() => {
             <p class="text-lg text-center font-bold mt-6">{{ message }}</p>
         </div>
         <div @click="toggleDark()" style="z-index: 100"
-            class="w-12 h-12 grid place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh-1rem)] top-4 right-20 md:right-[calc(20vw+10rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
+            class="md:w-12 md:h-12 w-10 h-10 grid place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh-1rem)] top-4 right-[4.25rem] md:right-[calc(20vw+10rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
             <i class="text-xl"
                 :class="[`fa-solid fa-${isDark ? 'sun' : 'moon'}`, isDark ? 'text-amber-700' : 'text-blue-600']"></i>
         </div>

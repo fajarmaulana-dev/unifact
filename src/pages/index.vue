@@ -31,6 +31,23 @@ const color = computed(() => {
 })
 
 const assign = (url: string) => location.assign(url);
+
+const sosmed = [
+    { class: 'fa-github', title: 'fajarmaulana-dev', act: 'https://github.com/fajarmaulana-dev' },
+    { class: 'fa-linkedin', title: 'Fajar Maulana', act: 'https://www.linkedin.com/in/fajar-maulana-16b98b152' },
+    { class: 'fa-facebook', title: 'Fajar Maulana', act: 'https://www.facebook.com/people/Fajar-Maulana/100010712022613' },
+]
+
+const news = [
+    { img: 'src/assets/mafindo.webp', title: 'turnbackhoax', act: 'http://turnbackhoax.id/' },
+    { img: 'src/assets/kominfo.webp', title: 'kominfo', act: 'https://www.kominfo.go.id/content/all/laporan_isu_hoaks' },
+    { img: 'src/assets/medcom.webp', title: 'medcom', act: 'https://www.medcom.id/cekfakta/' },
+    { img: 'src/assets/kompas.webp', title: 'kompas', act: 'https://www.kompas.com/cekfakta' },
+    { img: 'src/assets/liputan6.webp', title: 'liputan6', act: 'https://www.liputan6.com/cek-fakta' },
+    { img: 'src/assets/cnn.webp', title: 'cnnindonesia', act: 'https://www.cnnindonesia.com/tag/cek-fakta' },
+    { img: 'src/assets/tempo.webp', title: 'tempo', act: 'https://cekfakta.tempo.co/' },
+    { img: 'src/assets/detik.webp', title: 'detik', act: 'https://hoaxornot.detik.com/' }
+]
 </script>
 
 <template>
@@ -38,10 +55,10 @@ const assign = (url: string) => location.assign(url);
         <section class="absolute w-full h-full top-0">
             <div class="relative w-full h-full flex flex-col items-center justify-center p-[calc(.75rem+5vw)]">
                 <div @click="bulb = true"
-                    class="w-12 h-12 grid place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh+9rem)] top-4 right-4 md:right-[calc(20vw-2rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
+                    class="md:w-12 md:h-12 w-10 h-10 grid place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh+9rem)] top-4 right-4 md:right-[calc(20vw-2rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
                     <i class="fa-solid fa-lightbulb text-xl dark:text-amber-700 text-blue-600"></i>
                 </div>
-                <div class="absolute bottom-[15%] w-full h-24 flex flex-col items-center justify-center gap-2">
+                <!-- <div class="absolute bottom-[15%] w-full h-24 flex flex-col items-center justify-center gap-2">
                     <p style="font-size: var(--larger-icon) !important;" class="font-bold text-sky-700 dark:text-white">
                         Sudah coba aplikasinya ?</p>
                     <div class="text-center">
@@ -64,6 +81,45 @@ const assign = (url: string) => location.assign(url);
                             @click="assign('https://www.linkedin.com/in/fajar-maulana-16b98b152/')"></i>
                         <i class="fa-brands fa-facebook" title="Fajar Maulana"
                             @click="assign('https://www.facebook.com/people/Fajar-Maulana/100010712022613/')"></i>
+                    </div>
+                </div> -->
+                <div class="absolute md:hidden top-4 left-4 w-fit h-fit">
+                    <div
+                        class="flex items-center justify-center gap-3 [&>i]:text-2xl [&>i]:cursor-pointer [&>i]:w-10 [&>i]:h-10 [&>i]:dark:bg-white [&>i]:dark:text-blue-400 [&>i]:bg-sky-700 [&>i]:text-sky-100 hover:[&>i]:text-white hover:[&>i]:dark:text-blue-600 active:[&>i]:text-sky-100 active:[&>i]:dark:text-blue-400 [&>i]:rounded-full [&>i]:grid [&>i]:place-items-center [&>i]:transition [&>i]:duration-500">
+                        <i v-for="media, index in sosmed" :key="index" :class="`fa-brands ${media.class}`"
+                            :title="media.title" @click="assign(media.act)"></i>
+                    </div>
+                </div>
+                <div
+                    class="inf px-4 absolute bottom-4 lg:bottom-[10%] w-full h-fit hidden lg:flex lg:flex-row flex-col items-center justify-center lg:justify-around gap-3 [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-center [&>div]:gap-1 [&>div>p]:font-bold [&>div>p]:text-sky-700 [&>div>p]:dark:text-white">
+                    <div>
+                        <p style="font-size: var(--larger-icon) !important;">Situs cek fakta pilihan</p>
+                        <div
+                            class="flex flex-wrap items-center justify-center gap-3 [&>div]:text-2xl [&>div]:cursor-pointer [&>div]:w-10 [&>div]:h-10 [&>div]:dark:bg-white [&>div]:dark:text-blue-400 [&>div]:bg-sky-700 [&>div]:text-sky-100 hover:[&>div]:text-white hover:[&>div]:dark:text-blue-600 active:[&>div]:text-sky-100 active:[&>div]:dark:text-blue-400 [&>div]:rounded-md [&>div]:grid [&>div]:place-items-center [&>div]:transition [&>div]:duration-500 [&>div]:p-1.5">
+                            <div v-for="media, index in news" :key="index" :title="media.title"
+                                @click="assign(media.act)">
+                                <img :src="media.img" :alt="media.title">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="font-size: var(--larger-icon) !important;">Sudah coba aplikasinya ?</p>
+                        <div class="text-center">
+                            <div style="font-size: var(--logo) !important; cursor: pointer !important;"
+                                @click="assign('https://forms.gle/TFs7Dy5Raf7m2Gjk8')"
+                                class="flex items-center justify-center gap-3 dark:bg-white dark:text-blue-400 bg-sky-700 text-sky-100 hover:text-white hover:dark:text-blue-600 active:text-sky-100 active:dark:text-blue-400 rounded-md transition duration-500 h-10 sm:w-[calc(14rem+20vw)] w-[calc(14rem+14vw)] max-w-[25rem] font-bold">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Bagikan pendapatmu tentang uniFact</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="!hidden md:!flex">
+                        <p style="font-size: var(--larger-icon) !important;">Hubungi saya</p>
+                        <div
+                            class="flex items-center justify-center gap-3 [&>i]:text-2xl [&>i]:cursor-pointer [&>i]:w-10 [&>i]:h-10 [&>i]:dark:bg-white [&>i]:dark:text-blue-400 [&>i]:bg-sky-700 [&>i]:text-sky-100 hover:[&>i]:text-white hover:[&>i]:dark:text-blue-600 active:[&>i]:text-sky-100 active:[&>i]:dark:text-blue-400 [&>i]:rounded-md [&>i]:grid [&>i]:place-items-center [&>i]:transition [&>i]:duration-500">
+                            <i v-for="media, index in sosmed" :key="index" :class="`fa-brands ${media.class}`"
+                                :title="media.title" @click="assign(media.act)"></i>
+                        </div>
                     </div>
                 </div>
                 <h1 style="font-size: var(--big-title) !important;"
@@ -300,5 +356,11 @@ const assign = (url: string) => location.assign(url);
 
 .cont h5 {
     font-size: var(--smallest-icon) !important;
+}
+
+@media all and (min-height: 650px) {
+    .inf {
+        display: flex;
+    }
 }
 </style>
