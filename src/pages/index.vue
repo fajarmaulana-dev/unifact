@@ -47,14 +47,14 @@ const sosmed = [
 ]
 
 const news = [
-    { img: cnn, title: 'turnbackhoax', act: 'http://turnbackhoax.id/' },
-    { img: detik, title: 'kominfo', act: 'https://www.kominfo.go.id/content/all/laporan_isu_hoaks' },
-    { img: kominfo, title: 'medcom', act: 'https://www.medcom.id/cekfakta/' },
+    { img: mafindo, title: 'turnbackhoax', act: 'http://turnbackhoax.id/' },
+    { img: kominfo, title: 'kominfo', act: 'https://www.kominfo.go.id/content/all/laporan_isu_hoaks' },
+    { img: medcom, title: 'medcom', act: 'https://www.medcom.id/cekfakta/' },
     { img: kompas, title: 'kompas', act: 'https://www.kompas.com/cekfakta' },
     { img: liputan, title: 'liputan6', act: 'https://www.liputan6.com/cek-fakta' },
-    { img: mafindo, title: 'cnnindonesia', act: 'https://www.cnnindonesia.com/tag/cek-fakta' },
-    { img: medcom, title: 'tempo', act: 'https://cekfakta.tempo.co/' },
-    { img: tempo, title: 'detik', act: 'https://hoaxornot.detik.com/' }
+    { img: cnn, title: 'cnnindonesia', act: 'https://www.cnnindonesia.com/tag/cek-fakta' },
+    { img: tempo, title: 'tempo', act: 'https://cekfakta.tempo.co/' },
+    { img: detik, title: 'detik', act: 'https://hoaxornot.detik.com/' }
 ]
 </script>
 
@@ -63,7 +63,7 @@ const news = [
         <section class="absolute w-full h-full top-0">
             <div class="relative w-full h-full flex flex-col items-center justify-center p-[calc(.75rem+5vw)]">
                 <div @click="bulb = true"
-                    class="md:w-12 md:h-12 w-10 h-10 grid place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh+9rem)] top-4 right-4 md:right-[calc(20vw-2rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
+                    class="md:w-12 md:h-12 w-10 h-10 grid place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh+7rem)] top-4 right-4 md:right-[calc(20vw-2rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
                     <i class="fa-solid fa-lightbulb text-xl dark:text-amber-700 text-blue-600"></i>
                 </div>
                 <div class="absolute top-4 left-4 w-fit h-fit">
@@ -85,14 +85,14 @@ const news = [
                             </div>
                         </div>
                     </div>
-                    <div class="flex">
+                    <div class="fin hidden">
                         <p style="font-size: var(--larger-icon) !important;">Sudah coba aplikasinya ?</p>
                         <div class="text-center">
                             <div style="font-size: var(--logo) !important; cursor: pointer !important;"
                                 @click="assign('https://forms.gle/TFs7Dy5Raf7m2Gjk8')"
                                 class="flex items-center justify-center gap-3 dark:bg-white dark:text-blue-400 bg-sky-700 text-sky-100 hover:text-white hover:dark:text-blue-600 active:text-sky-100 active:dark:text-blue-400 rounded-md transition duration-500 h-10 sm:w-[calc(14rem+20vw)] w-[calc(14rem+14vw)] max-w-[25rem] font-bold">
                                 <i class="fa-solid fa-paper-plane"></i>
-                                <span>Bagikan pendapatmu tentang uniFact</span>
+                                <span>Bagikan pendapatmu tentang UniFACT</span>
                             </div>
                         </div>
                     </div>
@@ -111,7 +111,7 @@ const news = [
                     @on-prepend="enter()" @on-enter="enter()" @after-recognize="enter()" />
             </div>
         </section>
-        <section style="transition: .5s;" :class="bulb ? 'translate-y-0' : 'translate-y-[100%]'"
+        <section style="transition: .5s; z-index: 51;" :class="bulb ? 'translate-y-0' : 'translate-y-[100%]'"
             class="absolute cont p-[calc(1.25rem+1.25vw)] pr-[calc(.25rem+.25vw)] bg-sky-100 dark:bg-slate-800 w-full h-[60%] bottom-0 rounded-t-2xl">
             <div class="relative w-full h-full">
                 <span class="absolute w-full h-8 -top-[calc(1.25rem+1.25vw)] flex justify-center items-start">
@@ -180,7 +180,7 @@ const news = [
 
             </div>
         </section>
-        <section style="transition: .5s;" :class="open ? 'translate-y-0' : 'translate-y-[100%]'"
+        <section style="transition: .5s;  z-index: 51;" :class="open ? 'translate-y-0' : 'translate-y-[100%]'"
             class="absolute cont bg-sky-100 dark:bg-slate-800 w-full h-[80%] bottom-0 rounded-t-2xl">
             <div class="relative w-full h-full">
                 <span class="absolute w-full h-8 -top-8 flex justify-center items-start">
@@ -335,6 +335,12 @@ const news = [
 
 @media all and (min-height: 540px) {
     .inf {
+        display: flex;
+    }
+}
+
+@media all and (min-height: 360px) {
+    .fin {
         display: flex;
     }
 }

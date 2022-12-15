@@ -52,7 +52,7 @@ onMounted(() => {
     <section
         class="relative min-w-screen min-h-screen bg-gradient-to-b from-sky-400 via-amber-50 to-sky-200 dark:from-indigo-900 dark:via-indigo-800 dark:to-blue-400">
         <div style="transition: transform .5s;"
-            class="hidden md:block w-44 h-44 scale-[75%] dark:scale-[100%] rounded-full bg-amber-200 dark:bg-sky-100 absolute top-[20vh] right-[20vw] shadow-[0_0_100px_20px] shadow-amber-400 dark:shadow-blue-400">
+            class="hidden md:block w-44 h-44 scale-[75%] dark:scale-[100%] rounded-full bg-amber-200 dark:bg-sky-100 absolute top-[calc(20vh-2rem)] right-[20vw] shadow-[0_0_100px_20px] shadow-amber-400 dark:shadow-blue-400">
         </div>
         <div v-for="i in 60" :key="i" v-once
             :style="`top: calc(${Math.round(80 * Math.random())}vh - 6.5rem); left: calc(${Math.round(90 * Math.random())}vw - 4rem); width: ${.2 * Math.random()}rem;  height: ${.2 * Math.random()}rem; animation-duration: ${(i % 7) + 3}s`"
@@ -73,8 +73,8 @@ onMounted(() => {
             <h1 class="!text-[4.25rem] text-center font-extrabold leading-10">{{ code }}</h1>
             <p class="text-lg text-center font-bold mt-6">{{ message }}</p>
         </div>
-        <div @click="toggleDark()" style="z-index: 100"
-            class="md:w-12 md:h-12 w-10 h-10 grid place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh-1rem)] top-4 right-[4.25rem] md:right-[calc(20vw+10rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
+        <div @click="toggleDark()" style="z-index: 50"
+            class="md:w-12 md:h-12 w-10 h-10 grid place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh-3rem)] top-4 right-[4.25rem] md:right-[calc(20vw+10rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
             <i class="text-xl"
                 :class="[`fa-solid fa-${isDark ? 'sun' : 'moon'}`, isDark ? 'text-amber-700' : 'text-blue-600']"></i>
         </div>
@@ -124,6 +124,12 @@ onMounted(() => {
 
     100% {
         transform: translateX(100%);
+    }
+}
+
+@media all and (max-width: 360px) {
+    .stars {
+        display: none;
     }
 }
 </style>
