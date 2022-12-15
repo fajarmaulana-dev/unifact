@@ -39,14 +39,14 @@ const sosmed = [
 ]
 
 const news = [
-    { img: 'src/assets/mafindo.webp', title: 'turnbackhoax', act: 'http://turnbackhoax.id/' },
-    { img: 'src/assets/kominfo.webp', title: 'kominfo', act: 'https://www.kominfo.go.id/content/all/laporan_isu_hoaks' },
-    { img: 'src/assets/medcom.webp', title: 'medcom', act: 'https://www.medcom.id/cekfakta/' },
-    { img: 'src/assets/kompas.webp', title: 'kompas', act: 'https://www.kompas.com/cekfakta' },
-    { img: 'src/assets/liputan6.webp', title: 'liputan6', act: 'https://www.liputan6.com/cek-fakta' },
-    { img: 'src/assets/cnn.webp', title: 'cnnindonesia', act: 'https://www.cnnindonesia.com/tag/cek-fakta' },
-    { img: 'src/assets/tempo.webp', title: 'tempo', act: 'https://cekfakta.tempo.co/' },
-    { img: 'src/assets/detik.webp', title: 'detik', act: 'https://hoaxornot.detik.com/' }
+    { img: 'src/assets/mafindo.png', title: 'turnbackhoax', act: 'http://turnbackhoax.id/' },
+    { img: 'src/assets/kominfo.png', title: 'kominfo', act: 'https://www.kominfo.go.id/content/all/laporan_isu_hoaks' },
+    { img: 'src/assets/medcom.png', title: 'medcom', act: 'https://www.medcom.id/cekfakta/' },
+    { img: 'src/assets/kompas.png', title: 'kompas', act: 'https://www.kompas.com/cekfakta' },
+    { img: 'src/assets/liputan6.png', title: 'liputan6', act: 'https://www.liputan6.com/cek-fakta' },
+    { img: 'src/assets/cnn.png', title: 'cnnindonesia', act: 'https://www.cnnindonesia.com/tag/cek-fakta' },
+    { img: 'src/assets/tempo.png', title: 'tempo', act: 'https://cekfakta.tempo.co/' },
+    { img: 'src/assets/detik.png', title: 'detik', act: 'https://hoaxornot.detik.com/' }
 ]
 </script>
 
@@ -58,31 +58,6 @@ const news = [
                     class="md:w-12 md:h-12 w-10 h-10 grid place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh+9rem)] top-4 right-4 md:right-[calc(20vw-2rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
                     <i class="fa-solid fa-lightbulb text-xl dark:text-amber-700 text-blue-600"></i>
                 </div>
-                <!-- <div class="absolute bottom-[15%] w-full h-24 flex flex-col items-center justify-center gap-2">
-                    <p style="font-size: var(--larger-icon) !important;" class="font-bold text-sky-700 dark:text-white">
-                        Sudah coba aplikasinya ?</p>
-                    <div class="text-center">
-                        <div style="font-size: var(--logo) !important; cursor: pointer !important;"
-                            @click="assign('https://forms.gle/TFs7Dy5Raf7m2Gjk8')"
-                            class="flex items-center justify-center gap-3 dark:bg-white dark:text-blue-400 bg-sky-700 text-sky-100 hover:text-white hover:dark:text-blue-600 active:text-sky-100 active:dark:text-blue-400 rounded-md transition duration-500 h-10 sm:w-[calc(14rem+20vw)] w-[calc(14rem+14vw)] max-w-[25rem] font-bold">
-                            <i class="fa-solid fa-paper-plane"></i>
-                            <span>Bagikan pendapatmu tentang uniFact</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="absolute bottom-2 w-full h-24 flex flex-col items-center justify-center gap-2">
-                    <p style="font-size: var(--larger-icon) !important;" class="font-bold text-sky-700 dark:text-white">
-                        Hubungi saya</p>
-                    <div
-                        class="flex items-center justify-center gap-3 [&>i]:text-2xl [&>i]:cursor-pointer [&>i]:w-10 [&>i]:h-10 [&>i]:dark:bg-white [&>i]:dark:text-blue-400 [&>i]:bg-sky-700 [&>i]:text-sky-100 hover:[&>i]:text-white hover:[&>i]:dark:text-blue-600 active:[&>i]:text-sky-100 active:[&>i]:dark:text-blue-400 [&>i]:rounded-md [&>i]:grid [&>i]:place-items-center [&>i]:transition [&>i]:duration-500">
-                        <i class="fa-brands fa-github" title="fajarmaulana-dev"
-                            @click="assign('https://github.com/fajarmaulana-dev')"></i>
-                        <i class="fa-brands fa-linkedin" title="Fajar Maulana"
-                            @click="assign('https://www.linkedin.com/in/fajar-maulana-16b98b152/')"></i>
-                        <i class="fa-brands fa-facebook" title="Fajar Maulana"
-                            @click="assign('https://www.facebook.com/people/Fajar-Maulana/100010712022613/')"></i>
-                    </div>
-                </div> -->
                 <div class="absolute top-4 left-4 w-fit h-fit">
                     <div
                         class="flex items-center justify-center gap-3 [&>i]:text-2xl [&>i]:cursor-pointer [&>i]:w-10 [&>i]:h-10 [&>i]:dark:bg-white [&>i]:dark:text-blue-400 [&>i]:bg-sky-700 [&>i]:text-sky-100 hover:[&>i]:text-white hover:[&>i]:dark:text-blue-600 active:[&>i]:text-sky-100 active:[&>i]:dark:text-blue-400 [&>i]:rounded-full [&>i]:grid [&>i]:place-items-center [&>i]:transition [&>i]:duration-500">
