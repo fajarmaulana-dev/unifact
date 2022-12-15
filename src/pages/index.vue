@@ -4,6 +4,14 @@ import { usePredict } from './__index';
 import NotFound from '@/components/tools/NotFound.vue';
 import IcoText from '@/components/tools/IcoText.vue';
 import Alert from '@/components/tools/Alert.vue';
+import cnn from '@/assets/cnn.webp';
+import detik from '@/assets/detik.webp';
+import kominfo from '@/assets/kominfo.webp';
+import kompas from '@/assets/kompas.webp';
+import liputan from '@/assets/liputan6.webp';
+import mafindo from '@/assets/mafindo.webp';
+import medcom from '@/assets/medcom.webp';
+import tempo from '@/assets/tempo.webp';
 const open = ref(false);
 const bulb = ref(false)
 const { loading, predict, prediction } = usePredict();
@@ -39,14 +47,14 @@ const sosmed = [
 ]
 
 const news = [
-    { img: 'src/assets/mafindo.png', title: 'turnbackhoax', act: 'http://turnbackhoax.id/' },
-    { img: 'src/assets/kominfo.png', title: 'kominfo', act: 'https://www.kominfo.go.id/content/all/laporan_isu_hoaks' },
-    { img: 'src/assets/medcom.png', title: 'medcom', act: 'https://www.medcom.id/cekfakta/' },
-    { img: 'src/assets/kompas.png', title: 'kompas', act: 'https://www.kompas.com/cekfakta' },
-    { img: 'src/assets/liputan6.png', title: 'liputan6', act: 'https://www.liputan6.com/cek-fakta' },
-    { img: 'src/assets/cnn.png', title: 'cnnindonesia', act: 'https://www.cnnindonesia.com/tag/cek-fakta' },
-    { img: 'src/assets/tempo.png', title: 'tempo', act: 'https://cekfakta.tempo.co/' },
-    { img: 'src/assets/detik.png', title: 'detik', act: 'https://hoaxornot.detik.com/' }
+    { img: cnn, title: 'turnbackhoax', act: 'http://turnbackhoax.id/' },
+    { img: detik, title: 'kominfo', act: 'https://www.kominfo.go.id/content/all/laporan_isu_hoaks' },
+    { img: kominfo, title: 'medcom', act: 'https://www.medcom.id/cekfakta/' },
+    { img: kompas, title: 'kompas', act: 'https://www.kompas.com/cekfakta' },
+    { img: liputan, title: 'liputan6', act: 'https://www.liputan6.com/cek-fakta' },
+    { img: mafindo, title: 'cnnindonesia', act: 'https://www.cnnindonesia.com/tag/cek-fakta' },
+    { img: medcom, title: 'tempo', act: 'https://cekfakta.tempo.co/' },
+    { img: tempo, title: 'detik', act: 'https://hoaxornot.detik.com/' }
 ]
 </script>
 
