@@ -95,7 +95,7 @@ const news = [
                     <div>
                         <p style="font-size: var(--larger-icon) !important;">Situs cek fakta pilihan</p>
                         <div
-                            class="flex flex-wrap items-center justify-center gap-3 [&>div]:text-2xl [&>div]:cursor-pointer [&>div]:w-10 [&>div]:h-10 [&>div]:dark:bg-white [&>div]:dark:text-blue-400 [&>div]:bg-sky-700 [&>div]:text-sky-100 hover:[&>div]:text-white hover:[&>div]:dark:text-blue-600 active:[&>div]:text-sky-100 active:[&>div]:dark:text-blue-400 [&>div]:rounded-md [&>div]:grid [&>div]:place-items-center [&>div]:transition [&>div]:duration-500 [&>div]:p-1.5">
+                            class="flex flex-wrap items-center justify-center gap-3 [&>div]:text-2xl [&>div]:cursor-pointer [&>div]:w-10 [&>div]:h-10 [&>div]:bg-white [&>div]:border-2 [&>div]:border-solid [&>div]:border-blue-400 hover:[&>div]:border-blue-700 hover:[&>div]:dark:border-white active:[&>div]:border-blue-400 [&>div]:rounded-md [&>div]:grid [&>div]:place-items-center [&>div]:transition [&>div]:duration-500 [&>div]:p-1">
                             <div v-for="media, index in news" :key="index" :title="media.title"
                                 @click="assign(media.act)">
                                 <img :src="media.img" :alt="media.title">
