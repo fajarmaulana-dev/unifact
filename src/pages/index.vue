@@ -83,7 +83,7 @@ const news = [
                             @click="assign('https://www.facebook.com/people/Fajar-Maulana/100010712022613/')"></i>
                     </div>
                 </div> -->
-                <div class="absolute md:hidden top-4 left-4 w-fit h-fit">
+                <div class="absolute top-4 left-4 w-fit h-fit">
                     <div
                         class="flex items-center justify-center gap-3 [&>i]:text-2xl [&>i]:cursor-pointer [&>i]:w-10 [&>i]:h-10 [&>i]:dark:bg-white [&>i]:dark:text-blue-400 [&>i]:bg-sky-700 [&>i]:text-sky-100 hover:[&>i]:text-white hover:[&>i]:dark:text-blue-600 active:[&>i]:text-sky-100 active:[&>i]:dark:text-blue-400 [&>i]:rounded-full [&>i]:grid [&>i]:place-items-center [&>i]:transition [&>i]:duration-500">
                         <i v-for="media, index in sosmed" :key="index" :class="`fa-brands ${media.class}`"
@@ -91,8 +91,8 @@ const news = [
                     </div>
                 </div>
                 <div
-                    class="inf px-4 absolute bottom-4 lg:bottom-[10%] w-full h-fit hidden lg:flex lg:flex-row flex-col items-center justify-center lg:justify-around gap-3 [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:justify-center [&>div]:gap-1 [&>div>p]:font-bold [&>div>p]:text-sky-700 [&>div>p]:dark:text-white">
-                    <div>
+                    class="px-4 absolute bottom-4 lg:bottom-[10%] w-full h-fit flex lg:flex-row flex-col items-center justify-center lg:justify-around gap-3 [&>div]:flex-col [&>div]:items-center [&>div]:justify-center [&>div]:gap-1 [&>div>p]:font-bold [&>div>p]:text-sky-700 [&>div>p]:dark:text-white">
+                    <div class="inf hidden">
                         <p style="font-size: var(--larger-icon) !important;">Situs cek fakta pilihan</p>
                         <div
                             class="flex flex-wrap items-center justify-center gap-3 [&>div]:text-2xl [&>div]:cursor-pointer [&>div]:w-10 [&>div]:h-10 [&>div]:bg-white [&>div]:border-2 [&>div]:border-solid [&>div]:border-blue-400 hover:[&>div]:border-blue-700 hover:[&>div]:dark:border-white active:[&>div]:border-blue-400 [&>div]:rounded-md [&>div]:grid [&>div]:place-items-center [&>div]:transition [&>div]:duration-500 [&>div]:p-1">
@@ -102,7 +102,7 @@ const news = [
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div class="flex">
                         <p style="font-size: var(--larger-icon) !important;">Sudah coba aplikasinya ?</p>
                         <div class="text-center">
                             <div style="font-size: var(--logo) !important; cursor: pointer !important;"
@@ -111,14 +111,6 @@ const news = [
                                 <i class="fa-solid fa-paper-plane"></i>
                                 <span>Bagikan pendapatmu tentang uniFact</span>
                             </div>
-                        </div>
-                    </div>
-                    <div class="!hidden md:!flex">
-                        <p style="font-size: var(--larger-icon) !important;">Hubungi saya</p>
-                        <div
-                            class="flex items-center justify-center gap-3 [&>i]:text-2xl [&>i]:cursor-pointer [&>i]:w-10 [&>i]:h-10 [&>i]:dark:bg-white [&>i]:dark:text-blue-400 [&>i]:bg-sky-700 [&>i]:text-sky-100 hover:[&>i]:text-white hover:[&>i]:dark:text-blue-600 active:[&>i]:text-sky-100 active:[&>i]:dark:text-blue-400 [&>i]:rounded-md [&>i]:grid [&>i]:place-items-center [&>i]:transition [&>i]:duration-500">
-                            <i v-for="media, index in sosmed" :key="index" :class="`fa-brands ${media.class}`"
-                                :title="media.title" @click="assign(media.act)"></i>
                         </div>
                     </div>
                 </div>
@@ -358,7 +350,7 @@ const news = [
     font-size: var(--smallest-icon) !important;
 }
 
-@media all and (min-height: 650px) {
+@media all and (min-height: 540px) {
     .inf {
         display: flex;
     }
