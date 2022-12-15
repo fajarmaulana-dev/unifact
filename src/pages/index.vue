@@ -4,9 +4,6 @@ import { usePredict } from './__index';
 import NotFound from '@/components/tools/NotFound.vue';
 import IcoText from '@/components/tools/IcoText.vue';
 import Alert from '@/components/tools/Alert.vue';
-import { useDark, useToggle } from '@vueuse/core';
-const isDark = useDark();
-const toggleDark = useToggle(isDark);
 const open = ref(false);
 const bulb = ref(false)
 const { loading, predict, prediction } = usePredict();
@@ -40,11 +37,6 @@ const assign = (url: string) => location.assign(url);
     <NotFound message="" code="" class="overflow-hidden">
         <section class="absolute w-full h-full top-0">
             <div class="relative w-full h-full flex flex-col items-center justify-center p-[calc(.75rem+5vw)]">
-                <div @click="toggleDark()"
-                    class="w-12 h-12 grid place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh-1rem)] top-4 right-20 md:right-[calc(20vw+10rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
-                    <i class="text-xl"
-                        :class="[`fa-solid fa-${isDark ? 'sun' : 'moon'}`, isDark ? 'text-amber-700' : 'text-blue-600']"></i>
-                </div>
                 <div @click="bulb = true"
                     class="w-12 h-12 grid place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh+9rem)] top-4 right-4 md:right-[calc(20vw-2rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
                     <i class="fa-solid fa-lightbulb text-xl dark:text-amber-700 text-blue-600"></i>

@@ -5,6 +5,9 @@ import cloud2 from '@/assets/cloud2.png'
 import cloud3 from '@/assets/cloud3.png'
 import cloud4 from '@/assets/cloud4.png'
 import cloud5 from '@/assets/cloud5.png'
+import { useDark, useToggle } from '@vueuse/core';
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 
 const props = defineProps({
     code: {
@@ -77,6 +80,11 @@ onMounted(() => {
             class="absolute w-full px-6 bottom-16 text-sky-600 dark:text-sky-100 flex flex-col justify-center items-center">
             <h1 class="!text-[4.25rem] text-center font-extrabold leading-10">{{ code }}</h1>
             <p class="text-lg text-center font-bold mt-6">{{ message }}</p>
+        </div>
+        <div @click="toggleDark()"
+            class="w-12 h-12 grid place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh-1rem)] top-4 right-20 md:right-[calc(20vw+10rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
+            <i class="text-xl"
+                :class="[`fa-solid fa-${isDark ? 'sun' : 'moon'}`, isDark ? 'text-amber-700' : 'text-blue-600']"></i>
         </div>
         <slot></slot>
     </section>
