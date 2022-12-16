@@ -109,7 +109,9 @@ const news = [
                         for Indonesian hoax classification</span>
                 </h4>
                 <IcoText is="search" v-model="textModel" :loading="loading" prepend-cursor="cursor-pointer"
-                    @on-prepend="enter()" @on-enter="enter()" @after-recognize="enter()" />
+                    placeholder="Ketikkan narasi berita disini ..." @on-prepend="enter()" @on-enter="enter()"
+                    @after-recognize="enter()"
+                    title="Untuk pengalaman terbaik, ketikkan narasi berita secara lengkap atau singkat, bukan judulnya." />
             </div>
         </section>
         <section style="transition: .5s; z-index: 51;" :class="bulb ? 'translate-y-0' : 'translate-y-[100%]'"

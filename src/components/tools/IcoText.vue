@@ -163,8 +163,8 @@ const file = ref()
     <section
         :class="[disabled ? '[&>i]:text-slate-200 [&>i]:dark:text-slate-200' : '[&>i]:text-sky-600 [&>i]:dark:text-sky-300']"
         class="relative w-full h-[calc(2.5rem+2.5vw)] max-h-11 [&>i]:absolute [&>i]:inset-y-0 [&>i]:w-[calc(.7rem+2.5vw)] [&>i]:min-w-[2.25rem] [&>i]:grid [&>i]:place-items-center">
-        <input :required="required" :type="type" :id="id" :name="name" :placeholder="placeholder" :disabled="disabled"
-            :value="showPreview ? state : modelValue" @input="onModel($event)" spellcheck="false"
+        <input :title="title" :required="required" :type="type" :id="id" :name="name" :placeholder="placeholder"
+            :disabled="disabled" :value="showPreview ? state : modelValue" @input="onModel($event)" spellcheck="false"
             @keyup.enter="$emit('onEnter')" :class="is === 'search' ? '!pr-20 md:!pr-[calc(1.25rem+6vw)]' : ''"
             class="outline-none w-full bg-transparent h-full py-[calc(.1rem+1vw)] px-10 md:px-[calc(1.75rem+1.75vw)] text-sky-600 dark:text-sky-200 border-2 focus:outline-none rounded-md transition duration-300 disabled:cursor-not-allowed focus:ring-2 disabled:border-slate-200 dark:disabled:border-slate-200 disabled:shadow-none disabled:ring-0 border-sky-600 dark:border-sky-300 hover:border-sky-700 dark:hover:border-sky-200 focus:ring-sky-500 dark:focus:ring-sky-200 focus:ring-opacity-50 focus:border-sky-600 dark:focus:border-sky-300 invalid:border-rose-500 invalid:text-rose-600 focus:invalid:border-rose-600 focus:invalid:ring-rose-500 hover:invalid:hover:border-rose-700 dark:invalid:border-rose-200 dark:invalid:text-rose-300 dark:focus:invalid:border-rose-300 dark:focus:invalid:ring-rose-200 dark:invalid:hover:border-rose-200">
         <i :title="title" class="left-1" @click="$emit('onPrepend')"
