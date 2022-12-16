@@ -74,8 +74,8 @@ onMounted(() => {
             <p class="text-lg text-center font-bold mt-6">{{ message }}</p>
         </div>
         <div @click="toggleDark()" style="z-index: 50"
-            class="md:w-12 md:h-12 w-10 h-10 gr hidden place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh-3rem)] top-4 right-[4.25rem] md:right-[calc(20vw+10rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
-            <i class="text-xl"
+            class="group md:w-12 md:h-12 w-10 h-10 gr hidden place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh-3rem)] top-4 right-[4.25rem] md:right-[calc(20vw+10rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
+            <i class="text-xl group-hover:text-2xl group-active:text-xl" style="transition: .2s;"
                 :class="[`fa-solid fa-${isDark ? 'sun' : 'moon'}`, isDark ? 'text-amber-700' : 'text-blue-600']"></i>
         </div>
         <slot></slot>

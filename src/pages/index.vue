@@ -63,8 +63,9 @@ const news = [
         <section class="absolute w-full h-full top-0">
             <div class="relative w-full h-full flex flex-col items-center justify-center p-[calc(.75rem+5vw)]">
                 <div @click="bulb = true"
-                    class="md:w-12 md:h-12 w-10 h-10 gr hidden place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh+7rem)] top-4 right-4 md:right-[calc(20vw-2rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
-                    <i class="fa-solid fa-lightbulb text-xl dark:text-amber-700 text-blue-600"></i>
+                    class="group md:w-12 md:h-12 w-10 h-10 gr hidden place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh+7rem)] top-4 right-4 md:right-[calc(20vw-2rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
+                    <i style="transition: .2s"
+                        class="fa-solid fa-lightbulb text-xl group-hover:text-2xl group-active:text-xl dark:text-amber-700 text-blue-600"></i>
                 </div>
                 <div class="absolute top-4 left-4 w-fit h-fit">
                     <div
