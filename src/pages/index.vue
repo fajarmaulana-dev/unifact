@@ -56,6 +56,16 @@ const news = [
     { img: tempo, title: 'tempo', act: 'https://cekfakta.tempo.co/' },
     { img: detik, title: 'detik', act: 'https://hoaxornot.detik.com/' }
 ]
+
+const hoaxes = [
+    { title: 'Satire atau Parody', desc: 'konten tidak memiliki niat untuk merugikan, akan tetapi konten tersebut memiliki potensi untuk mengelabuhi' },
+    { title: 'Misleading Content', desc: 'digunakannya informasi yang menyesatkan pada suatu konten untuk membingkai sebuah isu atau individu tertentu' },
+    { title: 'Imposter Content', desc: 'konten palsu yang dibuat dengan meniru sumber aslinya' },
+    { title: 'Fabricated Content', desc: 'konten yang 100% salah dan dibuat untuk merugikan serta menipu pengaksesnya' },
+    { title: 'False Connection', desc: 'ketika judul, gambar, atau keterangannya tidak mendukung konten yang dipublikasikan' },
+    { title: 'False Context', desc: 'ketika konten yang asli dipadankan dengan konteks informasi yang salah' },
+    { title: 'Manipulated Content', desc: 'ketika informasi atau gambar yang asli dimanipulasi oleh penipu untuk mengelabuhi' },
+]
 </script>
 
 <template>
@@ -63,15 +73,16 @@ const news = [
         <section class="absolute w-full h-full top-0">
             <div class="relative w-full h-full flex flex-col items-center justify-center p-[calc(.75rem+5vw)]">
                 <div @click="bulb = true"
-                    class="group md:w-12 md:h-12 w-10 h-10 gr hidden place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh+7rem)] top-4 right-4 md:right-[calc(20vw-2rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
-                    <i style="transition: .2s"
-                        class="fa-solid fa-lightbulb text-xl dark:group-hover:text-amber-800 group-hover:text-blue-700 dark:group-active:text-amber-700 group-active:text-blue-600 dark:text-amber-700 text-blue-600"></i>
+                    class="group md:w-12 md:h-12 w-10 h-10 gr hidden place-items-center cursor-pointer rounded-full dark:bg-indigo-50 bg-amber-200 absolute md:top-[calc(20vh+7rem)] top-4 right-4 md:right-[calc(20vw-2rem)] shadow-[inset_0_0_15px_3px] dark:shadow-indigo-300 shadow-amber-600">
+                    <i style="transition: .5s"
+                        class="fa-solid fa-lightbulb text-xl dark:group-hover:text-indigo-900 group-hover:text-amber-800 dark:group-active:text-indigo-600 group-active:text-amber-700 dark:text-indigo-600 text-amber-700"></i>
                 </div>
                 <div class="absolute top-4 left-4 w-fit h-fit">
                     <div
-                        class="bl hidden items-center justify-center gap-3 [&>i]:text-2xl [&>i]:cursor-pointer [&>i]:w-10 [&>i]:h-10 [&>i]:dark:bg-white [&>i]:dark:text-blue-400 [&>i]:bg-sky-700 [&>i]:text-sky-100 hover:[&>i]:text-white hover:[&>i]:dark:text-blue-600 active:[&>i]:text-sky-100 active:[&>i]:dark:text-blue-400 [&>i]:rounded-full [&>i]:grid [&>i]:place-items-center [&>i]:transition [&>i]:duration-500">
+                        class="bl hidden items-center justify-center gap-3 [&>i]:shadow-[inset_0_0_15px_3px] dark:[&>i]:bg-indigo-50 [&>i]:bg-amber-200 dark:[&>i]:shadow-indigo-300 [&>i]:shadow-amber-600 [&>i]:text-2xl [&>i]:cursor-pointer [&>i]:w-10 [&>i]:h-10 [&>i]:rounded-full [&>i]:grid [&>i]:place-items-center [&>i]:transition [&>i]:duration-500">
                         <i v-for="media, index in sosmed" :key="index" :class="`fa-brands ${media.class}`"
-                            :title="media.title" @click="assign(media.act)"></i>
+                            :title="media.title" @click="assign(media.act)"
+                            class="dark:hover:text-indigo-900 hover:text-amber-800 dark:active:text-indigo-600 active:text-amber-700 dark:text-indigo-600 text-amber-700"></i>
                     </div>
                 </div>
                 <div
@@ -79,7 +90,7 @@ const news = [
                     <div class="inf hidden">
                         <p style="font-size: var(--larger-icon) !important;">Situs cek fakta pilihan</p>
                         <div
-                            class="flex flex-wrap items-center justify-center gap-3 [&>div]:text-2xl [&>div]:cursor-pointer [&>div]:w-10 [&>div]:h-10 [&>div]:bg-white [&>div]:border-2 [&>div]:border-solid [&>div]:border-blue-400 hover:[&>div]:border-blue-700 hover:[&>div]:dark:border-white active:[&>div]:border-blue-400 [&>div]:rounded-md [&>div]:grid [&>div]:place-items-center [&>div]:transition [&>div]:duration-500 [&>div]:p-1">
+                            class="flex flex-wrap items-center justify-center gap-3 [&>div]:text-2xl [&>div]:cursor-pointer [&>div]:w-10 [&>div]:h-10 [&>div]:bg-white [&>div]:border-2 [&>div]:border-solid [&>div]:border-blue-400 hover:[&>div]:border-sky-600 hover:[&>div]:dark:border-white active:[&>div]:border-blue-400 [&>div]:rounded-md [&>div]:grid [&>div]:place-items-center [&>div]:transition [&>div]:duration-500 [&>div]:p-1">
                             <div v-for="media, index in news" :key="index" :title="media.title"
                                 @click="assign(media.act)">
                                 <img :src="media.img" :alt="media.title">
@@ -99,13 +110,13 @@ const news = [
                     </div>
                 </div>
                 <h1 style="font-size: var(--big-title) !important;"
-                    class="text-sky-500 dark:text-sky-200 font-black leading-[calc(1.25rem+1.25vw)]">
-                    Uni<span class="text-amber-500 dark:text-amber-200">FACT</span>
+                    class="text-sky-600 dark:text-sky-200 font-black leading-[calc(1.25rem+1.25vw)]">
+                    Uni<span class="text-amber-600 dark:text-amber-200">FACT</span>
                 </h1>
                 <h4 style="font-size: var(--small-title) !important;"
-                    class="w-full text-center mb-[calc(1rem+1vw)] text-sky-500 dark:text-sky-200 font-bold">
+                    class="w-full text-center mb-[calc(1rem+1vw)] text-sky-600 dark:text-sky-200 font-bold">
                     deep learning based app
-                    <span class="text-amber-500 dark:text-amber-200">
+                    <span class="text-amber-600 dark:text-amber-200">
                         for Indonesian hoax classification</span>
                 </h4>
                 <IcoText is="search" v-model="textModel" :loading="loading" prepend-cursor="cursor-pointer"
@@ -131,40 +142,9 @@ const news = [
                             class="underline font-bold">FirstDraft (2017)</a>,
                         sebuah koalisi non profit internasional pada bidang etika jurnalistik, misinformasi dan
                         disinformasi memiliki sebanyak tujuh klasifikasi yaitu:</p>
-                    <div>
-                        <strong class="min-w-[1.5rem]">1.</strong>
-                        <p><strong>Satire atau Parody</strong>, yaitu konten tidak memiliki niat untuk merugikan, akan
-                            tetapi konten tersebut memiliki potensi untuk mengelabuhi</p>
-                    </div>
-                    <div>
-                        <strong class="min-w-[1.5rem]">2.</strong>
-                        <p><strong>Misleading Content</strong>, yaitu digunakannya informasi yang menyesatkan pada suatu
-                            konten untuk membingkai sebuah isu atau individu tertentu.</p>
-                    </div>
-                    <div>
-                        <strong class="min-w-[1.5rem]">3.</strong>
-                        <p><strong>Imposter Content</strong>, yaitu konten palsu yang dibuat dengan meniru sumber
-                            aslinya.</p>
-                    </div>
-                    <div>
-                        <strong class="min-w-[1.5rem]">4.</strong>
-                        <p><strong>Fabricated Content</strong>, yaitu konten yang 100% salah dan dibuat untuk merugikan
-                            serta menipu pengaksesnya.</p>
-                    </div>
-                    <div>
-                        <strong class="min-w-[1.5rem]">5.</strong>
-                        <p><strong>False Connection</strong>, yaitu ketika judul, gambar, atau keterangannya tidak
-                            mendukung konten yang dipublikasikan.</p>
-                    </div>
-                    <div>
-                        <strong class="min-w-[1.5rem]">6.</strong>
-                        <p><strong>False Context</strong>, yaitu ketika konten yang asli dipadankan dengan konteks
-                            informasi yang salah.</p>
-                    </div>
-                    <div>
-                        <strong class="min-w-[1.5rem]">7.</strong>
-                        <p><strong>Manipulated Content</strong>, yaitu ketika informasi atau gambar yang asli
-                            dimanipulasi oleh penipu untuk mengelabuhi.</p>
+                    <div v-for="hoax, index in hoaxes" :key="index">
+                        <strong class="min-w-[1.5rem]">{{ index + 1 }}.</strong>
+                        <p><strong>{{ hoax.title }}</strong>, yaitu {{ hoax.desc }}.</p>
                     </div>
                     <p class="my-3">Masalah klasifikasi ini dapat diselesaikan secara otomatis menggunakan model Deep
                         Learning. Secara singkat, model Deep Learning terutama untuk masalah klasifikasi teks dapat

@@ -50,7 +50,7 @@ onMounted(() => {
 </script>
 <template>
     <section
-        class="relative min-w-screen min-h-screen bg-gradient-to-b from-sky-400 via-amber-50 to-sky-200 dark:from-indigo-900 dark:via-indigo-800 dark:to-blue-400">
+        class="relative min-w-screen min-h-screen bg-gradient-to-b from-sky-300 via-amber-100 to-sky-400 dark:from-indigo-900 dark:via-indigo-800 dark:to-blue-400">
         <div style="transition: transform .5s;"
             class="hidden md:block w-44 h-44 scale-[75%] dark:scale-[100%] rounded-full bg-amber-200 dark:bg-sky-100 absolute top-[calc(20vh-2rem)] right-[20vw] shadow-[0_0_100px_20px] shadow-amber-400 dark:shadow-blue-400">
         </div>
@@ -74,10 +74,9 @@ onMounted(() => {
             <p class="text-lg text-center font-bold mt-6">{{ message }}</p>
         </div>
         <div @click="toggleDark()" style="z-index: 50"
-            class="group md:w-12 md:h-12 w-10 h-10 gr hidden place-items-center cursor-pointer rounded-full dark:bg-amber-200 bg-sky-100 absolute md:top-[calc(20vh-3rem)] top-4 right-[4.25rem] md:right-[calc(20vw+10rem)] shadow-[inset_0_0_15px_3px] dark:shadow-amber-400 shadow-blue-600">
-            <i class="text-xl dark:group-hover:text-amber-800 group-hover:text-blue-700 dark:group-active:text-amber-700 group-active:text-blue-600 dark:text-amber-700 text-blue-600"
-                style="transition: .2s;"
-                :class="[`fa-solid fa-${isDark ? 'sun' : 'moon'}`, isDark ? 'text-amber-700' : 'text-blue-600']"></i>
+            class="group md:w-12 md:h-12 w-10 h-10 gr hidden place-items-center cursor-pointer rounded-full dark:bg-indigo-50 bg-amber-200 absolute md:top-[calc(20vh-3rem)] top-4 right-[4.25rem] md:right-[calc(20vw+10rem)] shadow-[inset_0_0_15px_3px] dark:shadow-indigo-300 shadow-amber-600">
+            <i class="text-xl dark:group-hover:text-indigo-900 group-hover:text-amber-800 dark:group-active:text-indigo-600 group-active:text-amber-700 dark:text-indigo-600 text-amber-700"
+                style="transition: .5s;" :class="`fa-solid fa-${isDark ? 'sun' : 'moon'}`"></i>
         </div>
         <slot></slot>
     </section>
