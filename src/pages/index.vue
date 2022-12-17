@@ -91,7 +91,7 @@ const hoaxes = [
                         <div class="flex flex-wrap items-center justify-center gap-3">
                             <div v-for="media, index in news" :key="index" :title="media.title"
                                 @click="assign(media.act)"
-                                class="text-2xl cursor-pointer w-10 h-10 bg-white border-2 border-solid border-blue-400 hover:border-sky-600 hover:dark:border-white active:border-blue-400 rounded-md grid place-items-center transition duration-500 p-1">
+                                class="text-2xl cursor-pointer w-10 h-10 bg-sky-100 dark:bg-white border-2 border-solid border-blue-400 hover:border-sky-600 hover:dark:border-white active:border-blue-400 rounded-md grid place-items-center transition duration-500 p-1">
                                 <img :src="media.img" :alt="media.title">
                             </div>
                         </div>
@@ -101,7 +101,7 @@ const hoaxes = [
                         <div class="text-center">
                             <div style="font-size: var(--logo) !important; cursor: pointer !important;"
                                 @click="assign('https://forms.gle/TFs7Dy5Raf7m2Gjk8')"
-                                class="flex items-center justify-center gap-3 bg-white dark:text-blue-400 text-sky-600 hover:text-sky-800 hover:dark:text-blue-600 active:text-sky-600 active:dark:text-blue-400 rounded-md transition duration-500 h-10 sm:w-[calc(14rem+20vw)] w-[calc(14rem+14vw)] max-w-[25rem] font-bold border-2 border-solid dark:border-blue-400 border-sky-600 hover:border-sky-800 hover:dark:border-white active:dark:border-blue-400 active:border-sky-600">
+                                class="flex items-center justify-center gap-3 bg-sky-100 dark:bg-white dark:text-blue-400 text-sky-600 hover:text-sky-800 hover:dark:text-blue-600 active:text-sky-600 active:dark:text-blue-400 rounded-md transition duration-500 h-10 sm:w-[calc(14rem+20vw)] w-[calc(14rem+14vw)] max-w-[25rem] font-bold border-2 border-solid dark:border-blue-400 border-sky-600 hover:border-sky-800 hover:dark:border-white active:dark:border-blue-400 active:border-sky-600">
                                 <i class="fa-solid fa-paper-plane"></i>
                                 <span>Bagikan pendapatmu tentang UniFACT</span>
                             </div>
