@@ -73,26 +73,25 @@ const hoaxes = [
         <section class="absolute w-full h-full top-0">
             <div class="relative w-full h-full flex flex-col items-center justify-center p-[calc(.75rem+5vw)]">
                 <div @click="bulb = true"
-                    class="group md:w-12 md:h-12 w-10 h-10 gr hidden place-items-center cursor-pointer rounded-full dark:bg-indigo-50 bg-amber-200 absolute md:top-[calc(20vh+7rem)] top-4 right-4 md:right-[calc(20vw-2rem)] shadow-[inset_0_0_15px_3px] dark:shadow-indigo-300 shadow-amber-600">
+                    class="group md:w-12 md:h-12 w-10 h-10 gr hidden place-items-center cursor-pointer rounded-full absolute md:top-[calc(20vh+7rem)] top-4 right-4 md:right-[calc(20vw-2rem)] shadow-[inset_0_0_15px_3px] dark:bg-indigo-50 bg-sky-50 dark:shadow-indigo-300 shadow-sky-300">
                     <i style="transition: .5s"
-                        class="fa-solid fa-lightbulb text-xl dark:group-hover:text-indigo-900 group-hover:text-amber-800 dark:group-active:text-indigo-600 group-active:text-amber-700 dark:text-indigo-600 text-amber-700"></i>
+                        class="fa-solid fa-lightbulb text-xl dark:group-hover:text-indigo-700 group-hover:text-sky-900 dark:group-active:text-indigo-600 group-active:text-sky-600 dark:text-indigo-600 text-sky-600"></i>
                 </div>
                 <div class="absolute top-4 left-4 w-fit h-fit">
-                    <div
-                        class="bl hidden items-center justify-center gap-3 [&>i]:shadow-[inset_0_0_15px_3px] dark:[&>i]:bg-indigo-50 [&>i]:bg-amber-200 dark:[&>i]:shadow-indigo-300 [&>i]:shadow-amber-600 [&>i]:text-2xl [&>i]:cursor-pointer [&>i]:w-10 [&>i]:h-10 [&>i]:rounded-full [&>i]:grid [&>i]:place-items-center [&>i]:transition [&>i]:duration-500">
+                    <div class="bl hidden items-center justify-center gap-3">
                         <i v-for="media, index in sosmed" :key="index" :class="`fa-brands ${media.class}`"
                             :title="media.title" @click="assign(media.act)"
-                            class="dark:hover:text-indigo-900 hover:text-amber-800 dark:active:text-indigo-600 active:text-amber-700 dark:text-indigo-600 text-amber-700"></i>
+                            class="hover:dark:text-indigo-700 hover:text-sky-900 active:dark:text-indigo-600 active:text-sky-600 dark:text-indigo-600 text-sky-600 shadow-[inset_0_0_15px_3px] dark:bg-indigo-50 bg-sky-50 dark:shadow-indigo-300 shadow-sky-300 text-2xl cursor-pointer w-10 h-10 rounded-full grid place-items-center transition duration-500"></i>
                     </div>
                 </div>
                 <div
-                    class="px-4 absolute bottom-4 lg:bottom-[10%] w-full h-fit flex lg:flex-row flex-col items-center justify-center lg:justify-around gap-3 [&>div]:flex-col [&>div]:items-center [&>div]:justify-center [&>div]:gap-1 [&>div>p]:font-bold [&>div>p]:text-sky-700 [&>div>p]:dark:text-white">
+                    class="px-4 absolute bottom-4 lg:bottom-[10%] w-full h-fit flex lg:flex-row flex-col items-center justify-center lg:justify-around gap-3 [&>div]:flex-col [&>div]:items-center [&>div]:justify-center [&>div]:gap-1 [&>div>p]:font-bold [&>div>p]:text-sky-600 [&>div>p]:dark:text-white">
                     <div class="inf hidden">
                         <p style="font-size: var(--larger-icon) !important;">Situs cek fakta pilihan</p>
-                        <div
-                            class="flex flex-wrap items-center justify-center gap-3 [&>div]:text-2xl [&>div]:cursor-pointer [&>div]:w-10 [&>div]:h-10 [&>div]:bg-white [&>div]:border-2 [&>div]:border-solid [&>div]:border-blue-400 hover:[&>div]:border-sky-600 hover:[&>div]:dark:border-white active:[&>div]:border-blue-400 [&>div]:rounded-md [&>div]:grid [&>div]:place-items-center [&>div]:transition [&>div]:duration-500 [&>div]:p-1">
+                        <div class="flex flex-wrap items-center justify-center gap-3">
                             <div v-for="media, index in news" :key="index" :title="media.title"
-                                @click="assign(media.act)">
+                                @click="assign(media.act)"
+                                class="text-2xl cursor-pointer w-10 h-10 bg-white border-2 border-solid border-blue-400 hover:border-sky-600 hover:dark:border-white active:border-blue-400 rounded-md grid place-items-center transition duration-500 p-1">
                                 <img :src="media.img" :alt="media.title">
                             </div>
                         </div>
@@ -102,7 +101,7 @@ const hoaxes = [
                         <div class="text-center">
                             <div style="font-size: var(--logo) !important; cursor: pointer !important;"
                                 @click="assign('https://forms.gle/TFs7Dy5Raf7m2Gjk8')"
-                                class="flex items-center justify-center gap-3 dark:bg-white dark:text-blue-400 bg-sky-700 text-sky-100 hover:text-white hover:dark:text-blue-600 active:text-sky-100 active:dark:text-blue-400 rounded-md transition duration-500 h-10 sm:w-[calc(14rem+20vw)] w-[calc(14rem+14vw)] max-w-[25rem] font-bold">
+                                class="flex items-center justify-center gap-3 bg-white dark:text-blue-400 text-sky-600 hover:text-sky-800 hover:dark:text-blue-600 active:text-sky-600 active:dark:text-blue-400 rounded-md transition duration-500 h-10 sm:w-[calc(14rem+20vw)] w-[calc(14rem+14vw)] max-w-[25rem] font-bold border-2 border-solid dark:border-blue-400 border-sky-600 hover:border-sky-800 hover:dark:border-white active:dark:border-blue-400 active:border-sky-600">
                                 <i class="fa-solid fa-paper-plane"></i>
                                 <span>Bagikan pendapatmu tentang UniFACT</span>
                             </div>
