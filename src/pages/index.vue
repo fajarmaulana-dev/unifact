@@ -73,7 +73,7 @@ const hoaxes = [
         <section class="absolute w-full h-full top-0">
             <div class="relative w-full h-full flex flex-col items-center justify-center p-[calc(.75rem+5vw)]">
                 <div @click="bulb = true"
-                    class="group md:w-12 md:h-12 w-10 h-10 gr hidden place-items-center cursor-pointer rounded-full absolute md:top-[calc(20vh+7rem)] top-4 right-4 md:right-[calc(20vw-2rem)] shadow-[inset_0_0_15px_3px] dark:bg-indigo-50 bg-sky-50 dark:shadow-indigo-300 shadow-sky-300">
+                    class="group md:!w-12 md:!h-12 !w-10 !h-10 gr hidden place-items-center cursor-pointer rounded-full absolute md:!top-[calc(20vh+7rem)] !top-4 !right-4 md:!right-[calc(20vw-2rem)] shadow-[inset_0_0_15px_3px] dark:bg-indigo-50 bg-sky-50 dark:shadow-indigo-300 shadow-sky-300">
                     <i style="transition: .5s"
                         class="fa-solid fa-lightbulb text-xl dark:group-hover:text-indigo-700 group-hover:text-sky-900 dark:group-active:text-indigo-600 group-active:text-sky-600 dark:text-indigo-600 text-sky-600"></i>
                 </div>
@@ -318,6 +318,15 @@ const hoaxes = [
 @media all and (min-height: 540px) {
     .inf {
         display: flex;
+    }
+}
+
+@media all and (max-height: 640px) {
+    .gr {
+        top: 1rem !important;
+        right: 1rem !important;
+        width: 2.5rem !important;
+        height: 2.5rem !important;
     }
 }
 
