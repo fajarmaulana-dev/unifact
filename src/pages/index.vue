@@ -91,7 +91,7 @@ const hoaxes = [
                         <div class="flex flex-wrap items-center justify-center gap-3">
                             <div v-for="media, index in news" :key="index" :title="media.title"
                                 @click="assign(media.act)"
-                                class="text-2xl cursor-pointer w-10 h-10 bg-sky-100 dark:bg-white border-2 border-solid border-blue-400 hover:border-sky-600 hover:dark:border-white active:border-blue-400 rounded-md grid place-items-center transition duration-500 p-1">
+                                class="text-2xl cursor-pointer w-10 h-10 bg-sky-100 dark:bg-white border-2 border-solid dark:border-blue-400 border-sky-600 hover:border-sky-800 hover:dark:border-white active:dark:border-blue-400 active:border-sky-600 rounded-md grid place-items-center transition duration-500 p-1">
                                 <img :src="media.img" :alt="media.title">
                             </div>
                         </div>
