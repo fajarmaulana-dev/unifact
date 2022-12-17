@@ -171,10 +171,10 @@ const file = ref()
             :class="[is === 'search' && (showPreview || loading) ? '' : is === 'search' && (!showPreview && !loading) ? 'fa-solid fa-magnifying-glass' : prependIcon, prependCursor, prependCursor === 'cursor-pointer' ? 'hover:text-sky-700 dark:hover:text-sky-200 active:text-sky-600 dark:active:text-sky-300' : '']">
             <Spinner v-if="showPreview || loading" is="scale-dots" fill="fill-sky-600 dark:fill-sky-300" />
         </i>
-        <i :title="is === 'search' ? 'Cari dengan scan' : title"
+        <i :title="is === 'search' ? 'Deteksi dengan scan' : title"
             @click="is === 'search' ? file.click() : $emit('onAppend')" class="right-1"
             :class="[is === 'search' ? 'fa-solid fa-image' : appendIcon, appendCursor, appendCursor === 'cursor-pointer' ? 'hover:text-sky-700 dark:hover:text-sky-200 active:text-sky-600 dark:active:text-sky-300' : '']"></i>
-        <i title="Cari dengan ucapan" v-if="is === 'search'" @click="is === 'search' ? ToggleMic() : $emit('onMic')"
+        <i title="Deteksi dengan ucapan" v-if="is === 'search'" @click="is === 'search' ? ToggleMic() : $emit('onMic')"
             class="fa-solid fa-microphone right-9 md:right-[calc(.6rem+2.75vw)] cursor-pointer hover:text-sky-700 dark:hover:text-sky-200 active:text-sky-600 dark:active:hover:text-sky-300"></i>
     </section>
     <input style="display: none" ref="file" id="file" type="file" @change="getFile" />
