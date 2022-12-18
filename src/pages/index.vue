@@ -150,14 +150,13 @@ const hoaxes = [
                         dikatakan sebagai persamaan kurva yang dapat mengelompokkan data masukan ke dalam kelompok kelas
                         tertentu berdasarkan hasil pemberian makna linguistik terhadap setiap kata pada dataset.</p>
                     <p>Untuk itu, sebagai syarat penyelesaian skripsi, pengembang mencoba membangun aplikasi dengan
-                        model Deep Learning berarsitektur <strong>Bidirectional Temporal Convolutional Neural
-                            Network</strong> yang mana berdasarkan uji coba, dapat menghasilkan model yang lebih baik
-                        dari arsitektur lainnya seperti CNN, LSTM, dan GRU. Model yang terpasang pada aplikasi ini dapat
-                        mengklasifikasikan narasi ke dalam tiga klasifikasi, yaitu Valid, Misleading Content/False
-                        Context/Manipulated Content, dan Fabricated Content/Imposter Content. Model belum dapat
-                        mengklasifikasikan secara lengkap dikarenakan masih kurangnya data pada beberapa kelas.
-                        Sedangkan penggabungan beberapa kelas dilakukan berdasarkan adanya kemiripan dari kelas yang
-                        digabung.</p>
+                        model Deep Learning berarsitektur <strong>Bidirectional Temporal Convolutional Network</strong>
+                        yang mana berdasarkan uji coba, dapat menghasilkan model yang lebih baik dari arsitektur lainnya
+                        seperti CNN, LSTM, dan GRU. Model yang terpasang pada aplikasi ini dapat mengklasifikasikan
+                        narasi ke dalam tiga klasifikasi, yaitu Valid, Misleading Content/False Context/Manipulated
+                        Content, dan Fabricated Content/Imposter Content. Model belum dapat mengklasifikasikan secara
+                        lengkap dikarenakan masih kurangnya data pada beberapa kelas. Sedangkan penggabungan beberapa
+                        kelas dilakukan berdasarkan adanya kemiripan dari kelas yang digabung.</p>
                 </div>
 
             </div>
