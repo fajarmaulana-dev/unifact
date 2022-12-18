@@ -124,12 +124,8 @@ const hoaxes = [
                     title="Untuk pengalaman terbaik, ketikkan narasi berita secara lengkap atau singkat (minimal 20 kata jika ada), dan bukan judulnya." />
                 <p style="font-size: var(--small-title) !important"
                     class="lg:hidden text-center mt-3 font-bold text-amber-700 dark:text-amber-200">
-                    Untuk pengalaman
-                    terbaik, ketikkan narasi
-                    berita secara
-                    lengkap atau
-                    singkat (minimal 20 kata jika
-                    ada), dan bukan judulnya.</p>
+                    Untuk pengalaman terbaik, ketikkan narasi berita secara lengkap atau
+                    singkat (minimal 20 kata jika ada), dan bukan judulnya.</p>
             </div>
         </section>
         <section style="transition: .5s; z-index: 51;" :class="bulb ? 'translate-y-0' : 'translate-y-[100%]'"
@@ -337,7 +333,7 @@ const hoaxes = [
     }
 }
 
-@media all and (min-height: 360px) {
+@media all and (min-height: 380px) {
     .fin {
         display: flex;
     }
