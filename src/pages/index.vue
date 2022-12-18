@@ -75,13 +75,13 @@ const hoaxes = [
                 <div @click="bulb = true"
                     class="group md:!w-12 md:!h-12 !w-10 !h-10 gr hidden place-items-center cursor-pointer rounded-full absolute md:!top-[calc(20vh+7rem)] !top-4 !right-4 md:!right-[calc(20vw-2rem)] shadow-[inset_0_0_15px_3px] dark:bg-indigo-50 bg-sky-50 dark:shadow-indigo-300 shadow-sky-300">
                     <i style="transition: .5s"
-                        class="fa-solid fa-lightbulb text-xl dark:group-hover:text-indigo-700 group-hover:text-sky-900 dark:group-active:text-indigo-600 group-active:text-sky-600 dark:text-indigo-600 text-sky-600"></i>
+                        class="fa-solid fa-lightbulb text-xl dark:group-hover:text-indigo-900 group-hover:text-sky-900 dark:group-active:text-indigo-600 group-active:text-sky-600 dark:text-indigo-600 text-sky-600"></i>
                 </div>
                 <div class="absolute top-4 left-4 w-fit h-fit">
                     <div class="bl hidden items-center justify-center gap-3">
                         <i v-for="media, index in sosmed" :key="index" :class="`fa-brands ${media.class}`"
                             :title="media.title" @click="assign(media.act)"
-                            class="hover:dark:text-indigo-700 hover:text-sky-900 active:dark:text-indigo-600 active:text-sky-600 dark:text-indigo-600 text-sky-600 shadow-[inset_0_0_15px_3px] dark:bg-indigo-50 bg-sky-50 dark:shadow-indigo-300 shadow-sky-300 text-2xl cursor-pointer w-10 h-10 rounded-full grid place-items-center transition duration-500"></i>
+                            class="hover:dark:text-indigo-900 hover:text-sky-900 active:dark:text-indigo-600 active:text-sky-600 dark:text-indigo-600 text-sky-600 shadow-[inset_0_0_15px_3px] dark:bg-indigo-50 bg-sky-50 dark:shadow-indigo-300 shadow-sky-300 text-2xl cursor-pointer w-10 h-10 rounded-full grid place-items-center transition duration-500"></i>
                     </div>
                 </div>
                 <div

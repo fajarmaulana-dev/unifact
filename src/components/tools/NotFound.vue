@@ -75,7 +75,7 @@ onMounted(() => {
         </div>
         <div @click="toggleDark()" style="z-index: 50"
             class="group md:!w-12 md:!h-12 !w-10 !h-10 gr hidden place-items-center cursor-pointer rounded-full absolute md:!top-[calc(20vh-3rem)] !top-4 !right-[4.25rem] md:!right-[calc(20vw+10rem)] shadow-[inset_0_0_15px_3px] dark:bg-indigo-50 bg-sky-50 dark:shadow-indigo-300 shadow-sky-300">
-            <i class="text-xl dark:group-hover:text-indigo-700 group-hover:text-sky-900 dark:group-active:text-indigo-600 group-active:text-sky-600 dark:text-indigo-600 text-sky-600"
+            <i class="text-xl dark:group-hover:text-indigo-900 group-hover:text-sky-900 dark:group-active:text-indigo-600 group-active:text-sky-600 dark:text-indigo-600 text-sky-600"
                 style="transition: .5s;" :class="`fa-solid fa-${isDark ? 'sun' : 'moon'}`"></i>
         </div>
         <slot></slot>
