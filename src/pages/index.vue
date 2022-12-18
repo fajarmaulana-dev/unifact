@@ -121,7 +121,14 @@ const hoaxes = [
                 <IcoText is="search" v-model="textModel" :loading="loading" prepend-cursor="cursor-pointer"
                     placeholder="Ketikkan narasi berita disini ..." @on-prepend="enter()" @on-enter="enter()"
                     @after-recognize="enter()"
-                    title="Untuk pengalaman terbaik, ketikkan narasi berita secara lengkap atau singkat, bukan judulnya." />
+                    title="Untuk pengalaman terbaik, ketikkan narasi berita secara lengkap atau singkat (minimal 20 kata jika ada), dan bukan judulnya." />
+                <p style="font-size: var(--smaller-icon) !important"
+                    class="md:hidden text-center mt-3 font-bold text-amber-700 dark:text-amber-200">Untuk pengalaman
+                    terbaik, ketikkan narasi
+                    berita secara
+                    lengkap atau
+                    singkat (minimal 20 kata jika
+                    ada), dan bukan judulnya.</p>
             </div>
         </section>
         <section style="transition: .5s; z-index: 51;" :class="bulb ? 'translate-y-0' : 'translate-y-[100%]'"
