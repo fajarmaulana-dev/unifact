@@ -122,7 +122,7 @@ const hoaxes = [
                     placeholder="Ketikkan narasi berita disini ..." @on-prepend="enter()" @on-enter="enter()"
                     @after-recognize="enter()"
                     title="Untuk pengalaman terbaik, ketikkan narasi berita secara lengkap atau singkat (minimal 20 kata jika ada), dan bukan judulnya." />
-                <p style="font-size: var(--smaller-icon) !important"
+                <p style="font-size: var(--small-title) !important"
                     class="md:hidden text-center mt-3 font-bold text-amber-700 dark:text-amber-200">Untuk pengalaman
                     terbaik, ketikkan narasi
                     berita secara
@@ -321,7 +321,7 @@ const hoaxes = [
     font-size: var(--smallest-icon) !important;
 }
 
-@media all and (min-height: 540px) {
+@media all and (min-height: 580px) {
     .inf {
         display: flex;
     }
