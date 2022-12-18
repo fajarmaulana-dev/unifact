@@ -33,9 +33,9 @@ watch(normal, () => {
 })
 
 const color = computed(() => {
-    if (prediction.value?.prediction?.split(' ')[0] === 'Misleading') return 'text-amber-700 dark:text-amber-300';
-    if (prediction.value?.prediction?.split(' ')[0] === 'Fabricated') return 'text-rose-700 dark:text-rose-300';
-    if (prediction.value?.prediction?.split(' ')[0] === 'Valid') return 'text-emerald-700 dark:text-emerald-300'
+    if (prediction.value?.prediction?.split(' ')[0] === 'Misleading') return 'text-amber-600 dark:text-amber-300';
+    if (prediction.value?.prediction?.split(' ')[0] === 'Fabricated') return 'text-rose-600 dark:text-rose-300';
+    if (prediction.value?.prediction?.split(' ')[0] === 'Valid') return 'text-emerald-600 dark:text-emerald-300'
 })
 
 const assign = (url: string) => location.assign(url);
@@ -125,7 +125,7 @@ const hoaxes = [
             </div>
         </section>
         <section style="transition: .5s; z-index: 51;" :class="bulb ? 'translate-y-0' : 'translate-y-[100%]'"
-            class="absolute cont p-[calc(1.25rem+1.25vw)] pr-[calc(.25rem+.25vw)] bg-sky-100 dark:bg-slate-800 w-full h-[60%] bottom-0 rounded-t-2xl">
+            class="absolute cont p-[calc(1.25rem+1.25vw)] pr-[calc(.25rem+.25vw)] bg-sky-50 dark:bg-slate-800 w-full h-[60%] bottom-0 rounded-t-2xl">
             <div class="relative w-full h-full">
                 <span class="absolute w-full h-8 -top-[calc(1.25rem+1.25vw)] flex justify-center items-start">
                     <span @click="bulb = false"
@@ -163,7 +163,7 @@ const hoaxes = [
             </div>
         </section>
         <section style="transition: .5s;  z-index: 51;" :class="open ? 'translate-y-0' : 'translate-y-[100%]'"
-            class="absolute cont bg-sky-100 dark:bg-slate-800 w-full h-[80%] bottom-0 rounded-t-2xl">
+            class="absolute cont bg-sky-50 dark:bg-slate-800 w-full h-[80%] bottom-0 rounded-t-2xl">
             <div class="relative w-full h-full">
                 <span class="absolute w-full h-8 -top-8 flex justify-center items-start">
                     <span @click="textModel = ''; open = false; normal = ''"
@@ -175,14 +175,14 @@ const hoaxes = [
                 <div v-if="prediction?.withoutStopword === ''"
                     class="h-full grid place-items-center w-full p-[calc(.5rem+2.5vw)] pt-0 mt-8 !pb-12">
                     <div
-                        class="flex flex-col items-center gap-3 font-bold [&>*]:text-center [&>*]:text-amber-700 [&>*]:dark:text-amber-300 p-[calc(2rem+2vw)]">
+                        class="flex flex-col items-center gap-3 font-bold [&>*]:text-center [&>*]:text-amber-600 [&>*]:dark:text-amber-300 p-[calc(2rem+2vw)]">
                         <i class="fa-solid fa-triangle-exclamation text-[5rem] mb-[2vw]"></i>
                         <p>Oopss... Narasi yang kamu masukkan hanya memuat stopword (kata yang tidak begitu penting
                             untuk diprediksi), sehingga prediksi tidak dapat dilakukan.<br />
                             Silakan coba lagi dengan narasi yang berbeda.</p>
                         <em style="transition: .5s"
                             @click="assign('https://drive.google.com/file/d/1dNRiXb9fy3fzeypcYukzeexk7M8RNNLB/view?usp=sharing')"
-                            class="hover:!text-amber-500 active:!text-amber-700 active:dark:!text-amber-300 cursor-pointer">
+                            class="hover:!text-amber-500 active:!text-amber-600 active:dark:!text-amber-300 cursor-pointer">
                             Lihat daftar stopword >></em>
                     </div>
                 </div>
@@ -209,7 +209,7 @@ const hoaxes = [
                             <h2>Rincian Probabilitas</h2>
                             <div>
                                 <div v-for="(prob, index) in prediction?.probability" :key="index"
-                                    :class="prob?.class.split(' ')[0] === 'Misleading' ? 'text-amber-700 dark:text-amber-300' : prob?.class.split(' ')[0] === 'Fabricated' ? 'text-rose-700 dark:text-rose-300' : 'text-emerald-700 dark:text-emerald-300'"
+                                    :class="prob?.class.split(' ')[0] === 'Misleading' ? 'text-amber-600 dark:text-amber-300' : prob?.class.split(' ')[0] === 'Fabricated' ? 'text-rose-600 dark:text-rose-300' : 'text-emerald-600 dark:text-emerald-300'"
                                     class="flex mb-1 items-center [&>*]:font-bold">
                                     <h3 class="min-w-[calc(3.5rem+3.5vw)]">{{ prob.probs }}</h3>
                                     <h4>{{ prob.class }}</h4>
@@ -230,53 +230,53 @@ const hoaxes = [
                         <h2>Penjelasan</h2>
                         <p>Berdasarkan dominasi kata pada data train yang digunakan, diperoleh fakta bahwa frekuensi
                             tiap kata dari narasi pada tiap kelas dataset adalah sebagai berikut :</p>
-                        <h4 class="font-bold mt-4 mb-1 text-rose-700 dark:text-rose-300">
+                        <h4 class="font-bold mt-4 mb-1 text-rose-600 dark:text-rose-300">
                             Fabricated Content/Imposter Content</h4>
                         <div
-                            class="flex gap-2 flex-wrap [&>h5]:bg-rose-700 [&>h5]:dark:bg-rose-300 [&>h5]:text-sky-100 [&>h5]:dark:text-slate-800 [&>h5]:rounded-md [&>h5]:py-1 [&>h5]:px-3 [&>h5]:font-bold">
+                            class="flex gap-2 flex-wrap [&>h5]:bg-rose-600 [&>h5]:dark:bg-rose-300 [&>h5]:text-sky-100 [&>h5]:dark:text-slate-800 [&>h5]:rounded-md [&>h5]:py-1 [&>h5]:px-3 [&>h5]:font-bold">
                             <h5 v-for="(record, index) in prediction?.record?.imposter" :key="index">
                                 {{ record.word }}: {{ record.num }}x</h5>
                         </div>
-                        <h4 class="font-bold mt-4 mb-1 text-amber-700 dark:text-amber-300">Misleading Content/False
+                        <h4 class="font-bold mt-4 mb-1 text-amber-600 dark:text-amber-300">Misleading Content/False
                             Context/Manipulated Content</h4>
                         <div
-                            class="flex gap-2 flex-wrap [&>h5]:bg-amber-700 [&>h5]:dark:bg-amber-300 [&>h5]:text-sky-100 [&>h5]:dark:text-slate-800 [&>h5]:rounded-md [&>h5]:py-1 [&>h5]:px-3 [&>h5]:font-bold">
+                            class="flex gap-2 flex-wrap [&>h5]:bg-amber-600 [&>h5]:dark:bg-amber-300 [&>h5]:text-sky-100 [&>h5]:dark:text-slate-800 [&>h5]:rounded-md [&>h5]:py-1 [&>h5]:px-3 [&>h5]:font-bold">
                             <h5 v-for="(record, index) in prediction?.record?.false" :key="index">
                                 {{ record.word }}: {{ record.num }}x</h5>
                         </div>
-                        <h4 class="font-bold mt-4 mb-1 text-emerald-700 dark:text-emerald-300">Valid</h4>
+                        <h4 class="font-bold mt-4 mb-1 text-emerald-600 dark:text-emerald-300">Valid</h4>
                         <div
-                            class="flex gap-2 flex-wrap [&>h5]:bg-emerald-700 [&>h5]:dark:bg-emerald-300 [&>h5]:text-sky-100 [&>h5]:dark:text-slate-800 [&>h5]:rounded-md [&>h5]:py-1 [&>h5]:px-3 [&>h5]:font-bold">
+                            class="flex gap-2 flex-wrap [&>h5]:bg-emerald-600 [&>h5]:dark:bg-emerald-300 [&>h5]:text-sky-100 [&>h5]:dark:text-slate-800 [&>h5]:rounded-md [&>h5]:py-1 [&>h5]:px-3 [&>h5]:font-bold">
                             <h5 v-for="(record, index) in prediction?.record?.valid" :key="index">
                                 {{ record.word }}: {{ record.num }}x</h5>
                         </div>
                         <div class="[&>h4]:mb-2">
                             <h4 class="mt-4">Dari data di atas, dominasi kata pada kelas <span
-                                    class="text-rose-700 dark:text-rose-300 font-bold">Fabricated Content/Imposter
+                                    class="text-rose-600 dark:text-rose-300 font-bold">Fabricated Content/Imposter
                                     Content</span> adalah sebanyak <span
-                                    class="text-rose-700 dark:text-rose-300 font-bold">
+                                    class="text-rose-600 dark:text-rose-300 font-bold">
                                     {{ prediction?.domination?.imposter }} kali</span>, pada kelas <span
-                                    class="text-amber-700 dark:text-amber-300 font-bold">
+                                    class="text-amber-600 dark:text-amber-300 font-bold">
                                     Misleading Content/False Context/Manipulated Content</span> adalah <span
-                                    class="text-amber-700 dark:text-amber-300 font-bold">
+                                    class="text-amber-600 dark:text-amber-300 font-bold">
                                     {{ prediction?.domination?.false }} kali</span>, dan pada kelas
-                                <span class="text-emerald-700 dark:text-emerald-300 font-bold">Valid</span> adalah <span
-                                    class="text-emerald-700 dark:text-emerald-300 font-bold">
+                                <span class="text-emerald-600 dark:text-emerald-300 font-bold">Valid</span> adalah <span
+                                    class="text-emerald-600 dark:text-emerald-300 font-bold">
                                     {{ prediction?.domination?.valid }} kali</span>.
                             </h4>
                             <h4>Sedangkan berdasarkan eksistensi katanya, sebanyak <span
-                                    class="text-rose-700 dark:text-rose-300 font-bold">
+                                    class="text-rose-600 dark:text-rose-300 font-bold">
                                     {{ prediction?.existence?.imposter }} kata </span>
                                 pada narasi ada pada corpus kelas <span
-                                    class="text-rose-700 dark:text-rose-300 font-bold">
+                                    class="text-rose-600 dark:text-rose-300 font-bold">
                                     Fabricated Content/Imposter Content</span>, <span
-                                    class="text-amber-700 dark:text-amber-300 font-bold">
+                                    class="text-amber-600 dark:text-amber-300 font-bold">
                                     {{ prediction?.existence?.false }} kata </span>ada pada corpus kelas <span
-                                    class="text-amber-700 dark:text-amber-300 font-bold">
+                                    class="text-amber-600 dark:text-amber-300 font-bold">
                                     Misleading Content/False Context/Manipulated Content</span>, dan <span
-                                    class="text-emerald-700 dark:text-emerald-300 font-bold">
+                                    class="text-emerald-600 dark:text-emerald-300 font-bold">
                                     {{ prediction?.existence?.valid }} kata </span>ada pada corpus kelas <span
-                                    class="text-emerald-700 dark:text-emerald-300 font-bold">Valid</span>.
+                                    class="text-emerald-600 dark:text-emerald-300 font-bold">Valid</span>.
                             </h4>
                             <h4>Mempertimbangkan banyaknya dominasi kata, eksistensi kata, dan urutan
                                 bobot nilai linguistik yang diberikan oleh jaringan saraf, model

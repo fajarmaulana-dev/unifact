@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <main class="bg-sky-100 dark:bg-slate-900 text-sky-700 dark:text-sky-300 min-h-screen z-[-1000]">
+  <main class="bg-sky-100 dark:bg-slate-900 text-sky-600 dark:text-sky-300 min-h-screen z-[-1000]">
     <router-view />
   </main>
 </template>
