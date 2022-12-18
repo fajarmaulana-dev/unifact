@@ -116,7 +116,7 @@ const hoaxes = [
                     class="w-full text-center mb-[calc(1rem+1vw)] text-sky-600 dark:text-sky-200 font-bold">
                     deep learning based app
                     <span class="text-amber-600 dark:text-amber-200">
-                        for Indonesian hoax classification</span>
+                        for Indonesian hoaxes classification</span>
                 </h4>
                 <IcoText is="search" v-model="textModel" :loading="loading" prepend-cursor="cursor-pointer"
                     placeholder="Ketikkan narasi berita disini ..." @on-prepend="enter()" @on-enter="enter()"
