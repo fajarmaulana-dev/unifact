@@ -76,7 +76,7 @@ onMounted(() => {
         console.log('SR Started')
         isRecording.value = true
         showPreview.value = true
-        state.value = 'Ucapkan sesuatu ...'
+        state.value = 'Ucapkan sesuatu ... (Saat selesai, ucapkan "predict" untuk memprediksi atau ucapkan "forget" untuk mereset ucapan)'
     }
     sr.onend = () => {
         console.log('SR Stopped')
@@ -109,7 +109,7 @@ onMounted(() => {
 
 const CheckForCommand = (result: any) => {
     const t = result[0].transcript;
-    if (t.toLowerCase().includes(' open')) {
+    if (t.toLowerCase().includes(' predict')) {
         sr.stop()
         emit('afterRecognize')
     }
