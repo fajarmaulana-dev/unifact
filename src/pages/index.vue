@@ -4,6 +4,7 @@ import { usePredict } from './__index';
 import NotFound from '@/components/tools/NotFound.vue';
 import IcoText from '@/components/tools/IcoText.vue';
 import Alert from '@/components/tools/Alert.vue';
+import Spinner from '@/components/tools/Spinner.vue';
 import cnn from '@/assets/cnn.webp';
 import detik from '@/assets/detik.webp';
 import kominfo from '@/assets/kominfo.webp';
@@ -12,6 +13,16 @@ import liputan from '@/assets/liputan6.webp';
 import mafindo from '@/assets/mafindo.webp';
 import medcom from '@/assets/medcom.webp';
 import tempo from '@/assets/tempo.webp';
+import tempel1 from '@/assets/tempel1.png';
+import tempel2 from '@/assets/tempel2.png';
+import tempel3 from '@/assets/tempel3.png';
+import speech1 from '@/assets/speech1.png';
+import speech2 from '@/assets/speech2.png';
+import speech3 from '@/assets/speech3.png';
+import ocr1 from '@/assets/ocr1.png';
+import ocr2 from '@/assets/ocr2.png';
+import ocr3 from '@/assets/ocr3.png';
+import ocr4 from '@/assets/ocr4.png';
 const open = ref(false);
 const bulb = ref(false)
 const { loading, predict, prediction } = usePredict();
@@ -22,7 +33,7 @@ const enter = () => {
         predict({ text: textModel.value });
     }
 }
-
+const ping = ref(true)
 const normal = ref('')
 watch(prediction, () => {
     if (prediction) normal.value = prediction.value?.normalNaration
@@ -66,14 +77,37 @@ const hoaxes = [
     { title: 'False Context', desc: 'ketika konten yang asli dipadankan dengan konteks informasi yang salah' },
     { title: 'Manipulated Content', desc: 'ketika informasi atau gambar yang asli dimanipulasi oleh penipu untuk mengelabuhi' },
 ]
+
+const tempel = [
+    { img: tempel1, text: 'Salin narasi yang ingin dicek kebenarannya, misalnya narasi pada', suffix: 'berikut ini', link: 'https://twitter.com/Qazalyn/status/1607088863268462592' },
+    { img: tempel2, text: 'Tempel pada kolom input UniFACT, kemudian tekan enter atau bisa juga dengan klik tombol "lup" di bagian kiri kolom input seperti pada tangkapan layar di bawah ini', suffix: '', link: '' },
+    { img: tempel3, text: 'Tunggu proses klasifikasi yang ditandai dengan animasi pada kolom input. Setelah selesai, bilah akan otomatis terbuka dengan hasil prediksinya. Untuk menutup bilah, klik tombol "arah ke bawah" pada bagian tengah atas bilah', suffix: '', link: '' },
+]
+
+const ocr = [
+    { img: ocr1, text: 'Klik tombol "image" pada kolom input', suffix: '', link: '' },
+    { img: ocr2, text: 'Pilih gambar yang ingin digunakan. Usahakan teks yang ada di dalam gambar, benar-benar hanya teks yang ingin dicek kebenarannya. Pada contoh ini digunakan potongan dari salah satu artikel yang diunggah di suara.com', suffix: 'ini', link: 'https://www.suara.com/health/2023/01/02/075318/kena-penyakit-eksim-parah-bikin-perempuan-ini-pakai-alat-bantu-dengar-kok-penyakit-kulit-bikin-tuli' },
+    { img: ocr3, text: 'Tunggu proses OCR dan klasifikasi yang ditandai dengan animasi pada kolom input', suffix: '', link: '' },
+    { img: ocr4, text: 'Setelah selesai, bilah akan otomatis terbuka dengan hasil prediksinya. Untuk menutup bilah, klik tombol "arah ke bawah" pada bagian tengah atas bilah.', suffix: '', link: '' },
+]
+
+const speech = [
+    { img: speech1, text: 'Klik tombol “microphone” pada kolom input', suffix: '', link: '' },
+    { img: speech2, text: 'Ucapkan narasi yang ingin dicek kebenarannya dengan jelas dan tidak terlalu cepat', suffix: '', link: '' },
+    { img: speech3, text: 'Untuk mengakhiri ucapan dan melihat hasil prediksi, akhiri ucapan dengan kata "remember" atau bisa juga dengan langsung menekan tombol enter. Sedangkan apabila ingin mengakhiri ucapan  dengan tujuan untuk mereset ucapan, akhiri ucapan dengan kata "forget" atau bisa juga dengan klik ulang tombol "microphone". Untuk menutup bilah, klik tombol "arah ke bawah" pada bagian tengah atas bilah', suffix: '', link: '' },
+]
 </script>
 
 <template>
     <NotFound message="" code="" class="overflow-hidden">
         <section class="absolute w-full h-full top-0">
             <div class="relative w-full h-full flex flex-col items-center justify-center p-[calc(.75rem+5vw)]">
-                <div @click="bulb = true"
+                <div @click="bulb = true; ping = false" title="tutorial"
                     class="group md:!w-12 md:!h-12 !w-10 !h-10 gr hidden place-items-center cursor-pointer rounded-full absolute md:!top-[calc(20vh+7rem)] !top-4 !right-4 md:!right-[calc(20vw-2rem)] shadow-[inset_0_0_15px_3px] dark:bg-indigo-50 bg-sky-50 dark:shadow-indigo-300 shadow-sky-300">
+                    <Spinner v-if="ping" is="ping"
+                        core="bg-sky-800 dark:bg-indigo-700 border-sky-100 dark:border-indigo-100"
+                        layer="bg-sky-700 dark:bg-indigo-600" :width=".45"
+                        class="absolute top-[.4rem] right-[.7rem] md:top-[.675rem] md:right-[.95rem]" />
                     <i style="transition: .5s"
                         class="fa-solid fa-lightbulb text-xl dark:group-hover:text-indigo-900 group-hover:text-sky-900 dark:group-active:text-indigo-600 group-active:text-sky-600 dark:text-indigo-600 text-sky-600"></i>
                 </div>
@@ -123,7 +157,7 @@ const hoaxes = [
                     @after-recognize="enter()"
                     title="Untuk pengalaman terbaik, ketikkan narasi berita secara lengkap atau singkat (minimal 20 kata jika ada), dan bukan judulnya." />
                 <p style="font-size: var(--small-title) !important"
-                    class="lg:hidden text-center mt-3 font-bold text-amber-700 dark:text-amber-200">
+                    class="lg:hidden text-center mt-3 font-bold text-amber-600 dark:text-amber-200">
                     Untuk pengalaman terbaik, ketikkan narasi berita secara lengkap atau
                     singkat (minimal 20 kata jika ada), dan bukan judulnya.</p>
             </div>
@@ -131,7 +165,8 @@ const hoaxes = [
         <section style="transition: .5s; z-index: 51;" :class="bulb ? 'translate-y-0' : 'translate-y-[100%]'"
             class="absolute cont p-[calc(1.25rem+1.25vw)] pr-[calc(.25rem+.25vw)] bg-sky-50 dark:bg-slate-800 w-full h-[60%] bottom-0 rounded-t-2xl">
             <div class="relative w-full h-full">
-                <span class="absolute w-full h-8 -top-[calc(1.25rem+1.25vw)] flex justify-center items-start">
+                <span
+                    class="absolute w-full h-8 -top-[calc(1.25rem+1.25vw)] -left-[calc(.6rem+.6vw)] flex justify-center items-start">
                     <span @click="bulb = false"
                         class="group h-5 w-12 rounded-b-full bg-sky-600 dark:bg-sky-300 text-slate-50 dark:text-slate-800 grid place-items-center cursor-pointer">
                         <i style="transition: .25s"
@@ -161,8 +196,38 @@ const hoaxes = [
                         Content, dan Fabricated Content/Imposter Content. Model belum dapat mengklasifikasikan secara
                         lengkap dikarenakan masih kurangnya data pada beberapa kelas. Sedangkan penggabungan beberapa
                         kelas dilakukan berdasarkan adanya kemiripan dari kelas yang digabung.</p>
+                    <h2 class="w-full text-center font-bold mb-6 mt-12">Cara Penggunaan Aplikasi</h2>
+                    <div class="mb-4 flex flex-col">
+                        <p class="font-bold mb-2 mt-4">Dengan cara mengetik atau salin tempel</p>
+                        <div v-for="temp, index in tempel" :key="index"
+                            class="mb-2 flex flex-col lg:flex-row gap-[calc(.5rem+.5vw)] justify-center items-center">
+                            <p class="w-full lg:w-[50%]">{{ temp.text }} <a style="transition: .3s"
+                                    class="underline text-sky-400 hover:text-sky-500 active:text-sky-400"
+                                    :href="temp.link">{{ temp.suffix }}</a>.</p>
+                            <img :src="temp.img" alt="tempel1" class="w-full lg:w-[50%] mb-3" />
+                        </div>
+                    </div>
+                    <div class="mb-4 flex flex-col">
+                        <p class="font-bold mb-2 mt-4">Dengan menggunakan fitur Optical Character Recognition (OCR)</p>
+                        <div v-for="temp, index in ocr" :key="index"
+                            class="mb-2 flex flex-col lg:flex-row gap-[calc(.5rem+.5vw)] justify-center items-center">
+                            <p class="w-full lg:w-[50%]">{{ temp.text }} <a style="transition: .3s"
+                                    class="underline text-sky-400 hover:text-sky-500 active:text-sky-400"
+                                    :href="temp.link">{{ temp.suffix }}</a>.</p>
+                            <img :src="temp.img" alt="tempel1" class="w-full lg:w-[50%] mb-3" />
+                        </div>
+                    </div>
+                    <div class="mb-4 flex flex-col">
+                        <p class="font-bold mb-2 mt-4">Dengan menggunakan fitur Speech-to-Text (Speech Recognition)</p>
+                        <div v-for="temp, index in speech" :key="index"
+                            class="mb-2 flex flex-col lg:flex-row gap-[calc(.5rem+.5vw)] justify-center items-center">
+                            <p class="w-full lg:w-[50%]">{{ temp.text }} <a style="transition: .3s"
+                                    class="underline text-sky-400 hover:text-sky-500 active:text-sky-400"
+                                    :href="temp.link">{{ temp.suffix }}</a>.</p>
+                            <img :src="temp.img" alt="tempel1" class="w-full lg:w-[50%] mb-3" />
+                        </div>
+                    </div>
                 </div>
-
             </div>
         </section>
         <section style="transition: .5s;  z-index: 51;" :class="open ? 'translate-y-0' : 'translate-y-[100%]'"
@@ -193,7 +258,8 @@ const hoaxes = [
                     <Alert class="mb-[calc(1rem+1.5vw)]" is="warning"
                         v-if="prediction?.existence?.false === 0 && prediction?.existence?.imposter === 0 && prediction?.existence?.valid === 0 || prediction?.withoutStopword?.split(' ').length < 4">
                         <strong class="mb-[calc(1rem+1vw)]">Perhatian!</strong><br />
-                        <p>{{ prediction?.withoutStopword?.split(' ').length < 4
+                        <p>{{
+                            prediction?.withoutStopword?.split(' ').length < 4
                                 ? 'Narasi bersih (tanpa stopword) terlalu singkat'
                                 : 'Corpus tidak memuat satupun kata pada narasi'
                         }}. Prediksi mungkin tidak akurat.</p>
@@ -225,7 +291,7 @@ const hoaxes = [
                                 <i :class="[prediction?.ico, color]" class="text-[4rem]"></i>
                             </div>
                             <p :class="color" class="text-center font-bold">{{
-                                    prediction?.prediction
+                                prediction?.prediction
                             }}</p>
                         </div>
                     </div>

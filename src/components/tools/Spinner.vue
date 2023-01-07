@@ -102,7 +102,8 @@ const at = 'http://www.w3.org/2000/svg'
         <span v-if="is === 'ping'" style="display: flex; position: relative"
             :style="`height: ${width}rem; width: ${width}rem`">
             <span :class="layer" class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-80"></span>
-            <span :class="core" class="relative inline-flex rounded-full h-full w-full border-2 border-solid"></span>
+            <span :class="core"
+                class="relative inline-flex rounded-full h-full w-full border-[.1rem] border-solid"></span>
         </span>
     </div>
 </template>
