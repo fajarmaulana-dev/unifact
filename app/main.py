@@ -6,17 +6,19 @@ from fastapi.middleware.cors import CORSMiddleware
 from tcn import TCN
 from keras.models import load_model
 
+# to make the backend app
 app = FastAPI()
 
+# configure the middleware first
 app.add_middleware(
-    CORSMiddleware,
-    allow_origins=['*'],
-    allow_credentials=True,
-    allow_methods=['*'],
-    allow_headers=['*'],
+    CORSMiddleware, # allowing API access
+    allow_origins=['*'], # allowing all domain to use the API from this app
+    allow_credentials=True, # use credential approach
+    allow_methods=['*'], # allowing all http request method in this app
+    allow_headers=['*'], # allowing all header parameter to used in this app
 )
 
-##### Normalize Input #####
+# Normalize Input to Make It Same with Data Format in Dataset
 def txt_to_sets(txt, sets, sep):
     filename = open(f'content/{txt}', "r")
     file_read = filename.read()
@@ -65,11 +67,12 @@ with open('content/word_dict.json') as json_file: word_index = json.load(json_fi
 with open('content/residu.json') as json_file: residu = json.load(json_file)
 with open('content/alay.json') as json_file: alay = json.load(json_file)
 
+# function to tokenize and pad sequence with word index in word-dict.json
 def tokenize(text):
     s = text.split()
     return [word_index[s[i]] if s[i] in word_index else 1 for i in range(len(s))]
 
-max_len = 196
+max_len = 920 # this max_len is same with max_len that used for training the model
 def pad_sequence(seq):
     return [0 if i < (max_len - len(seq)) else seq[i - (max_len - len(seq))] for i in range(max_len)]
 
@@ -170,20 +173,23 @@ def predict(text):
 class Naration(BaseModel):
     text: str
 
+
 ##### Create Routes #####
 @app.get("/")
 def read_root():
     return {"message": "Server is up and running!"}
 
-@app.post("/predict", status_code=201)
+@app.post("/predict", status_code=201) # 201 is the status code of created response
 async def get_predictions(naration: Naration):
     try:
+      # destructure the value from predict function and use them as the response value
       normal, nonstop, prediction, probability, record, domination, dominate, existence, ico = predict(naration.text)
       return {"normalNaration": normal, "withoutStopword": nonstop, "prediction": prediction, "probability": probability, "record": record, "domination": domination, "dominate": dominate, "existence": existence, "ico": ico}
     except:
       return {"prediction": "error"}
 
 if __name__ == "__main__":
+    # use dynamic port and host make it work on deployment
     port = os.getenv('PORT', default=5000)
     parser = argparse.ArgumentParser()
     parser.add_argument("--host", default="0.0.0.0", type=str)
