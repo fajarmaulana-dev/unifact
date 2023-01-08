@@ -79,7 +79,7 @@ const hoaxes = [
 ]
 
 const tempel = [
-    { img: tempel1, text: 'Salin narasi yang ingin dicek kebenarannya, misalnya narasi pada', suffix: 'berikut ini', link: 'https://twitter.com/Qazalyn/status/1607088863268462592' },
+    { img: tempel1, text: 'Salin narasi yang ingin dicek kebenarannya, misalnya narasi pada tautan', suffix: 'berikut ini', link: 'https://twitter.com/Qazalyn/status/1607088863268462592' },
     { img: tempel2, text: 'Tempel pada kolom input UniFACT, kemudian tekan enter atau bisa juga dengan klik tombol "lup" di bagian kiri kolom input seperti pada tangkapan layar di bawah ini', suffix: '', link: '' },
     { img: tempel3, text: 'Tunggu proses klasifikasi yang ditandai dengan animasi pada kolom input. Setelah selesai, bilah akan otomatis terbuka dengan hasil prediksinya. Untuk menutup bilah, klik tombol "arah ke bawah" pada bagian tengah atas bilah', suffix: '', link: '' },
 ]
