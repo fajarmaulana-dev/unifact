@@ -186,7 +186,7 @@ const speech = [
             :class="[dark ? 'bg-slate-800 shadow-slate-900' : 'bg-teal-50 shadow-teal-400', bool.open || bool.bulb ? 'translate-y-0' : 'translate-y-[100%]']"
             class="absolute [&_p]:text-sm [&_p]:font-medium [&_li]:text-sm [&_b]:text-sm [&_em]:text-sm [&_h2]:text-lg [&_h4]:text-sm [&_h5]:text-xs w-full h-[80vh] left-0 bottom-0 z-[3] rounded-t-3xl shadow-[0_5px_20px_1px]">
             <div class="relative w-full h-10">
-                <span style="transition: .3s" @click="bool.open = false; bool.bulb; model = ''; bool.focus = true"
+                <span style="transition: .3s" @click="bool.open = false; bool.bulb = false; model = ''; bool.focus = true"
                     :class="dark ? 'bg-sky-300 hover:bg-sky-200 text-slate-800' : 'bg-teal-500 hover:bg-teal-600 text-teal-50'"
                     class="group absolute top-0 left-[calc(50vw-1.5rem)] h-5 w-12 rounded-b-full grid place-items-center cursor-pointer">
                     <i style="transition: .3s"
