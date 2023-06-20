@@ -3,3 +3,14 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>;
   export default component;
 }
+
+export {};
+declare global {
+  interface Window {
+    SpeechRecognition?: any;
+    webkitSpeechRecognition?: any;
+    katex?: katex;
+  }
+}
+
+declare module 'tesseract.js';
