@@ -211,14 +211,12 @@ const speech = [
                 <div v-else :class="dark ? 'dark' : 'light'" class="w-full h-full overflow-y-auto px-[calc(.5rem+2.5vw)]">
                     <div v-if="few[0].every((i: string) => prediction?.existence[i] == 0) || prediction?.withoutStopword?.split(' ').length < 4"
                         :class="dark ? 'bg-amber-300 text-amber-900 border-amber-400' : 'bg-amber-200 text-amber-800 border-amber-800'"
-                        class="w-full border-[.15rem] border-solid py-[0.375rem] px-3 rounded-md flex justify-between items-center gap-6 mb-5">
-                        <div>
-                            <b class="mb-[calc(1rem+1vw)] !text-base">Perhatian!</b><br />
-                            <p>{{
-                                prediction?.withoutStopword?.split(' ').length < 4
-                                ? 'Narasi bersih (tanpa stopword) terlalu singkat'
-                                : 'Corpus tidak memuat satupun kata pada narasi' }}. Prediksi mungkin tidak akurat.</p>
-                        </div>
+                        class="w-full border-[.15rem] border-solid py-[0.375rem] px-3 rounded-md mb-5">
+                        <p class="mb-3 font-bold !text-base">Perhatian!</p>
+                        <p>{{
+                            prediction?.withoutStopword?.split(' ').length < 4
+                            ? 'Narasi bersih (tanpa stopword) terlalu singkat'
+                            : 'Corpus tidak memuat satupun kata pada narasi' }}. Prediksi mungkin tidak akurat.</p>
                     </div>
                     <div :class="dark ? 'text-sky-300' : 'text-teal-900'">
                         <div
