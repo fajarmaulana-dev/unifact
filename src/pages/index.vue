@@ -184,7 +184,7 @@ const speech = [
         <!-- Blade -->
         <div style="transition: transform .5s;"
             :class="[dark ? 'bg-slate-800 shadow-slate-900' : 'bg-teal-50 shadow-teal-400', bool.open || bool.bulb ? 'translate-y-0' : 'translate-y-[100%]']"
-            class="absolute [&_p]:text-sm [&_p]:font-medium [&_li]:text-sm [&_b]:text-sm [&_em]:text-sm [&_h2]:text-lg [&_h4]:text-sm [&_h5]:text-xs w-full h-[80vh] left-0 bottom-0 z-[3] rounded-t-3xl shadow-[0_5px_20px_1px]">
+            class="absolute pb-16 [&_p]:text-sm [&_p]:font-medium [&_li]:text-sm [&_b]:text-sm [&_em]:text-sm [&_h2]:text-lg [&_h4]:text-sm [&_h5]:text-xs w-full h-[80vh] left-0 bottom-0 z-[3] rounded-t-3xl shadow-[0_5px_20px_1px]">
             <div class="relative w-full h-10">
                 <span style="transition: .3s" @click="bool.open = false; bool.bulb = false; model = ''; bool.focus = true"
                     :class="dark ? 'bg-sky-300 hover:bg-sky-200 text-slate-800' : 'bg-teal-500 hover:bg-teal-600 text-teal-50'"
@@ -193,9 +193,9 @@ const speech = [
                         class="fa-solid fa-chevron-down -translate-y-[.15rem] group-hover:translate-y-0"></i>
                 </span>
             </div>
-            <div v-if="bool.open" class="w-full h-full py-5">
+            <div v-if="bool.open" class="w-full h-full pt-2">
                 <!-- Alert -->
-                <div v-if="prediction?.withoutStopword === ''" class="h-full grid place-items-center w-full">
+                <div v-if="prediction?.withoutStopword === ''" class="h-full grid place-items-center w-full mb-5">
                     <div :class="dark ? '[&>*]:text-amber-300' : '[&>*]:text-amber-600'"
                         class="flex flex-col items-center gap-3 font-bold [&>*]:text-center p-[calc(2rem+2vw)]">
                         <i class="fa-solid fa-triangle-exclamation text-[calc(4rem+4vw)] mb-[1vw]"></i>
@@ -208,12 +208,12 @@ const speech = [
                     </div>
                 </div>
                 <!-- prediction -->
-                <div v-else :class="dark ? 'dark' : 'light'" class="w-full h-full overflow-y-auto p-[calc(.5rem+2.5vw)]">
+                <div v-else :class="dark ? 'dark' : 'light'" class="w-full h-full overflow-y-auto px-[calc(.5rem+2.5vw)]">
                     <div v-if="few[0].every((i: string) => prediction?.existence[i] == 0) || prediction?.withoutStopword?.split(' ').length < 4"
                         :class="dark ? 'bg-amber-300 text-amber-900 border-amber-400' : 'bg-amber-200 text-amber-800 border-amber-800'"
-                        class="w-full border-[.15rem] border-solid py-[0.375rem] px-3 rounded-md flex justify-between items-center gap-6 mb-8">
+                        class="w-full border-[.15rem] border-solid py-[0.375rem] px-3 rounded-md flex justify-between items-center gap-6 mb-5">
                         <div>
-                            <b class="mb-[calc(1rem+1vw)]">Perhatian!</b><br />
+                            <b class="mb-[calc(1rem+1vw)] !text-base">Perhatian!</b><br />
                             <p>{{
                                 prediction?.withoutStopword?.split(' ').length < 4
                                 ? 'Narasi bersih (tanpa stopword) terlalu singkat'
