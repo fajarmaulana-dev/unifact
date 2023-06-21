@@ -97,7 +97,7 @@ const speech = [
         :class="dark ? 'from-indigo-900 via-indigo-800 to-blue-400' : 'from-sky-300 via-sky-100 to-sky-300'">
 
         <!-- Social Media -->
-        <div class="absolute w-full top-[calc(1rem+.5vw)] left-[calc(1rem+.5vw)] flex gap-2 [&>*]:grid [&>*]:place-items-center [&>*]:shadow-[inset_0_0_15px_3px] [&>*]:w-6 [&>*]:h-6 sm:[&>*]:w-8 sm:[&>*]:h-8 [&>*]:text-sm [&>*]:sm:text-base [&>*]:rounded-full"
+        <div class="absolute z-[2] w-full top-[calc(1rem+.5vw)] left-[calc(1rem+.5vw)] flex gap-2 [&>*]:grid [&>*]:place-items-center [&>*]:shadow-[inset_0_0_15px_3px] [&>*]:w-6 [&>*]:h-6 sm:[&>*]:w-8 sm:[&>*]:h-8 [&>*]:text-sm [&>*]:sm:text-base [&>*]:rounded-full"
             :class="dark ? '[&>*]:bg-indigo-100 [&>*]:shadow-indigo-400 [&>*]:text-indigo-600 hover:[&>*]:text-indigo-900' : '[&>*]:bg-sky-100 [&>*]:shadow-sky-300 [&>*]:text-sky-600 hover:[&>*]:text-sky-900'">
             <a href="https://fajarmaulana-dev.netlify.app" target="_blank" aria-label="Go to developers blog"
                 style="transition: .4s;" class="fa-solid fa-blog"></a>
@@ -109,9 +109,9 @@ const speech = [
         <div :class="dark ? '[&>button]:bg-indigo-100 [&>button]:shadow-indigo-400 [&>button]:text-indigo-600 hover:[&>button]:text-indigo-900 active:[&>button]:text-indigo-600' : '[&>button]:bg-sky-100 [&>button]:shadow-sky-300 [&>button]:text-sky-600 hover:[&>button]:text-sky-900 active:[&>button]:text-sky-600'"
             class="[&>button]:grid [&>button]:place-items-center [&>button]:shadow-[inset_0_0_15px_3px] [&>button]:w-10 [&>button]:h-10 sm:[&>button]:w-12 sm:[&>button]:h-12 [&>button]:text-base sm:[&>button]:text-xl [&>button]:rounded-full [&>button]:absolute [&>button]:z-[2]">
             <div :class="dark ? '' : 'hidden'">
-                <div v-for="i in Math.floor(screenWidth / 25)" :key="i" v-once class="stars"
-                    :style="`top: calc(${Math.round(80 * Math.random())}vh - 6.5rem); left: calc(${Math.round(90 * Math.random())}vw - 4rem); width: ${.2 * Math.random()}rem;  height: ${.2 * Math.random()}rem; animation-duration: ${(i % 7) + 3}s`"
-                    :class="dark ? 'rotate-[54deg] rounded-full bg-sky-100 absolute' : ''">
+                <div v-for="i in Math.floor(screenWidth / 25)" :key="i" v-once
+                    class="stars absolute bg-sky-100 rotate-[54deg] rounded-full"
+                    :style="`top: calc(${Math.round(80 * Math.random())}vh - 6.5rem); left: calc(${Math.round(90 * Math.random())}vw - 4rem); width: ${.2 * Math.random()}rem;  height: ${.2 * Math.random()}rem; animation-duration: ${(i % 7) + 3}s`">
                 </div>
             </div>
             <div :class="dark ? 'inv' : ''"
