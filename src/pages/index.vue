@@ -170,7 +170,7 @@ const speech = [
                 </div>
                 <div>
                     <span>Sudah coba aplikasinya ?</span>
-                    <a href="'https://forms.gle/TFs7Dy5Raf7m2Gjk8'" target="_blank" style="transition: .4s;"
+                    <a href="https://forms.gle/TFs7Dy5Raf7m2Gjk8" target="_blank" style="transition: .4s;"
                         aria-label="Go to form"
                         :class="dark ? 'border-blue-400 hover:border-white text-blue-400 bg-white' : 'border-blue-200 hover:border-blue-500 text-white bg-blue-500'"
                         class="flex justify-center items-center border-2 gap-3 py-2 text-sm sm:text-base lg:py-0 lg:h-10 px-3.5 rounded-md">
