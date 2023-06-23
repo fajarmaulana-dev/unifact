@@ -4,7 +4,11 @@ import Local from '@/api/local';
 const store = createStore({
   state() {
     return {
-      isDark: Local.getLocalData('theme') === true ? true : false,
+      isDark: !Local.getLocalData('theme')
+        ? true
+        : Local.getLocalData('theme') === true
+        ? true
+        : false,
     };
   },
   mutations: {
