@@ -161,7 +161,7 @@ const speech = [
                 class="w-full min-h-[calc(40vh-8vw-1rem)] flex flex-col lg:flex-row justify-end gap-8 lg:gap-0 lg:justify-around lg:items-end [&>div]:font-bold [&>div]:flex [&>div]:flex-col [&>div]:items-center [&>div]:gap-1.5 [&_span]:text-center">
                 <div>
                     <span>Situs cek fakta pilihan</span>
-                    <div class="flex gap-3 flex-wrap justify-center">
+                    <div class="flex gap-[calc(0.325rem+0.325vw)] flex-wrap justify-center">
                         <a v-for="media, i in medias" :key="i" :href="media.to" target="_blank"
                             :aria-label="`Go to ${media.src.split('.')[0]}`"
                             :title="`Ke halaman ${media.src.split('.')[0]}`" style="transition: .4s;"
@@ -342,7 +342,7 @@ const speech = [
                         <img :src="getAssets(temp.img)" :alt="`paste${index}`" class="w-full lg:w-[50%] mb-3" />
                     </div>
                 </div>
-                <div class="mb-4 flex flex-col">
+                <div class="flex flex-col">
                     <h3 class="font-bold mb-2 mt-4">Dengan menggunakan fitur Speech-to-Text (Speech Recognition)</h3>
                     <div v-for="temp, index in speech" :key="index"
                         class="mb-2 flex flex-col lg:flex-row gap-[calc(.5rem+.5vw)] justify-center items-center">
