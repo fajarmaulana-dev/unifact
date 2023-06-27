@@ -96,7 +96,7 @@ const speech = [
         :class="dark ? 'from-indigo-900 via-indigo-800 to-blue-400' : 'from-sky-300 via-sky-100 to-sky-300'">
 
         <!-- Social Media -->
-        <div class="absolute z-[2] w-full top-[calc(1rem+.5vw)] left-[calc(1rem+.5vw)] flex gap-2 [&>*]:grid [&>*]:place-items-center [&>*]:shadow-[inset_0_0_15px_3px] [&>*]:w-6 [&>*]:h-6 sm:[&>*]:w-8 sm:[&>*]:h-8 [&>*]:text-sm [&>*]:sm:text-base [&>*]:rounded-full"
+        <div class="absolute z-[2] w-full top-[calc(1rem+.5vw)] left-[calc(1rem+.5vw)] flex gap-2 [&>*]:!grid [&>*]:place-items-center [&>*]:shadow-[inset_0_0_15px_3px] [&>*]:w-6 [&>*]:h-6 sm:[&>*]:w-8 sm:[&>*]:h-8 [&>*]:text-sm [&>*]:sm:text-base [&>*]:rounded-full"
             :class="dark ? '[&>*]:bg-indigo-100 [&>*]:shadow-indigo-400 [&>*]:text-indigo-600 hover:[&>*]:text-indigo-900' : '[&>*]:bg-sky-100 [&>*]:shadow-sky-300 [&>*]:text-sky-600 hover:[&>*]:text-sky-900'">
             <a href="https://fajarmaulana-dev.netlify.app" target="_blank" aria-label="Go to developers blog"
                 style="transition: .4s;" class="fa-solid fa-blog"></a>
@@ -216,7 +216,7 @@ const speech = [
                     <div v-if="few[0].every((i: string) => prediction?.existence[i] == 0) || prediction?.withoutStopword?.split(' ').length < 4"
                         :class="dark ? 'bg-amber-300 text-amber-900 border-amber-400' : 'bg-amber-200 text-amber-800 border-amber-800'"
                         class="w-full border-[.15rem] border-solid py-[0.375rem] px-3 rounded-md mb-5">
-                        <p class="mb-3 font-bold !text-base">Perhatian!</p>
+                        <p class="mb-3 !font-bold !text-base">Perhatian!</p>
                         <p>{{
                             prediction?.withoutStopword?.split(' ').length < 4
                             ? 'Narasi bersih (tanpa stopword) terlalu singkat'
