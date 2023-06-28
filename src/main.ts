@@ -4,7 +4,6 @@ import router from './router';
 import store from './global';
 import './style.css';
 import './awesome.css';
-import '@fontsource/be-vietnam-pro';
 
 const app = createApp(App);
 
