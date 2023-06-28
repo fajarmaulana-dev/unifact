@@ -45,9 +45,10 @@ const medias = [
 ]
 
 const socials = [
-    { ico: 'github', url: 'https://github.com/fajarmaulana-dev' },
-    { ico: 'linkedin-in', url: 'https://www.linkedin.com/in/fajar-maulana-16b98b152' },
-    { ico: 'facebook', url: 'https://web.facebook.com/profile.php?id=100090702398845' },
+    { ico: 'solid fa-blog', url: 'https://fajarmaulana-dev.netlify.app' },
+    { ico: 'brands fa-github', url: 'https://github.com/fajarmaulana-dev' },
+    { ico: 'brands fa-linkedin-in', url: 'https://www.linkedin.com/in/fajar-maulana-16b98b152' },
+    { ico: 'brands fa-facebook', url: 'https://web.facebook.com/profile.php?id=100090702398845' },
 ]
 
 const screenWidth = ref(window.innerWidth)
@@ -98,10 +99,8 @@ const speech = [
         <!-- Social Media -->
         <div class="absolute z-[2] w-full top-[calc(1rem+.5vw)] left-[calc(1rem+.5vw)] flex gap-2 [&>*]:!grid [&>*]:place-items-center [&>*]:shadow-[inset_0_0_15px_3px] [&>*]:w-6 [&>*]:h-6 sm:[&>*]:w-8 sm:[&>*]:h-8 [&>*]:text-sm [&>*]:sm:text-base [&>*]:rounded-full"
             :class="dark ? '[&>*]:bg-indigo-100 [&>*]:shadow-indigo-400 [&>*]:text-indigo-600 hover:[&>*]:text-indigo-900' : '[&>*]:bg-sky-100 [&>*]:shadow-sky-300 [&>*]:text-sky-600 hover:[&>*]:text-sky-900'">
-            <a href="https://fajarmaulana-dev.netlify.app" target="_blank" aria-label="Go to developers blog"
-                style="transition: .4s;" class="fa-solid fa-blog"></a>
             <a v-for="social, i in socials" :key="i" :href="social.url" target="_blank" style="transition: .4s;"
-                :aria-label="`Go to developers ${social.ico} account`" :class="`fa-brands fa-${social.ico}`"></a>
+                :aria-label="`Go to developers ${social.ico.split('-')[1]} account`" :class="`fa-${social.ico}`"></a>
         </div>
 
         <!-- Background -->
