@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, toRefs, computed } from '@vue/reactivity';
-import { onMounted } from '@vue/runtime-core'
+import { onMounted, watch } from '@vue/runtime-core'
 // import { createWorker, PSM, OEM } from 'tesseract.js';
 import Spinner from './Spinner.vue';
 import { useStore } from 'vuex';
@@ -59,6 +59,9 @@ const reset = ref(false)
 const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition
 const sr = new Recognition()
 const inbox = ref()
+watch(autofocus, () => {
+    autofocus.value ? inbox.value.focus() : inbox.value.blur()
+})
 onMounted(() => {
     if (autofocus.value) {
         inbox.value.focus()

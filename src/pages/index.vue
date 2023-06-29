@@ -15,7 +15,8 @@ const bool = reactive({
     open: false,
     toast: false,
     bulb: false,
-    ping: true
+    ping: true,
+    focus: true
 })
 const { error, prediction, predict } = usePredict()
 
@@ -25,6 +26,7 @@ const getAssets = (path: string) => {
 
 const getPrediction = async () => {
     if (model.value.length > 0) {
+        bool.focus = false
         bool.load = true
         await predict({ text: model.value })
         bool.load = false
@@ -128,7 +130,7 @@ const speech = [
                 class="fa-solid relative feature sun top-[calc(5vh+1rem)] sm:top-[calc(5vh+1.5rem)] right-[calc(20vw+7rem)] sm:right-[calc(20vw+10rem)]">
             </button>
             <button id="info" title="Tutorial" aria-label="info-button" style="transition: color .4s;"
-                @click="bool.bulb = true"
+                @click="bool.focus = false; bool.bulb = true"
                 class="fa-solid fa-lightbulb feature bulb top-[calc(5vh+9.5rem)] sm:top-[calc(5vh+11.5rem)] right-[calc(20vw-1.5rem)] sm:right-[calc(20vw-2rem)]">
                 <Spinner is="ping" :core="dark ? 'bg-indigo-700 border-indigo-100' : 'bg-sky-800 border-sky-100'"
                     :layer="dark ? 'bg-indigo-600' : 'bg-sky-700'" :width=".45"
@@ -148,8 +150,8 @@ const speech = [
                     <span class="whitespace-nowrap" :class="dark ? 'text-amber-200' : 'text-teal-500'">
                         Indonesian hoax classification</span>
                 </p>
-                <IcoText v-model="model" :loading="bool.load" @on-prepend="getPrediction" @on-enter="getPrediction"
-                    @after-recognize="getPrediction"
+                <IcoText v-model="model" :autofocus="bool.focus" :loading="bool.load" @on-prepend="getPrediction"
+                    @on-enter="getPrediction" @after-recognize="getPrediction"
                     title="Untuk pengalaman terbaik, ketikkan narasi berita minimal 20 kata jika ada." />
                 <div :class="dark ? 'bg-amber-300 text-amber-900 border-amber-400' : 'bg-amber-100 text-amber-800 border-amber-700'"
                     class="w-full block lg:hidden text-xs sm:text-sm font-bold border-[.15rem] border-solid py-[0.375rem] px-3 rounded-md -translate-y-3 text-center">
@@ -189,7 +191,7 @@ const speech = [
             :class="[dark ? 'bg-slate-800 shadow-slate-900' : 'bg-teal-50 shadow-teal-400', bool.open || bool.bulb ? 'translate-y-0' : 'translate-y-[100%]']"
             class="absolute pb-16 [&_p]:text-sm [&_p]:font-medium [&_li]:text-sm [&_b]:text-sm [&_em]:text-sm [&_h2]:text-lg [&_h4]:text-sm [&_h5]:text-xs w-full h-[80vh] left-0 bottom-0 z-[3] rounded-t-3xl shadow-[0_5px_20px_1px]">
             <div class="relative w-full h-10">
-                <span style="transition: .3s" @click="bool.open = false; bool.bulb = false; model = ''"
+                <span style="transition: .3s" @click="bool.open = false; bool.bulb = false; model = '', bool.focus = true"
                     :class="dark ? 'bg-sky-300 hover:bg-sky-200 text-slate-800' : 'bg-teal-500 hover:bg-teal-600 text-teal-50'"
                     class="group absolute top-0 left-[calc(50vw-1.5rem)] h-5 w-12 rounded-b-full grid place-items-center cursor-pointer">
                     <i style="transition: .3s"
