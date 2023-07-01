@@ -19,6 +19,7 @@ onMounted(() => {
   margin: 0;
   padding: 0;
   font-family: 'Be Vietnam Pro', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 ::-webkit-scrollbar {
