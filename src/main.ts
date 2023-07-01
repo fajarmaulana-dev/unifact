@@ -4,6 +4,8 @@ import router from './router';
 import store from './global';
 import './style.css';
 import './awesome.css';
+import {useRegisterSW} from 'virtual:pwa-register/vue';
+useRegisterSW({immediate: true});
 
 const app = createApp(App);
 
